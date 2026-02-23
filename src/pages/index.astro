@@ -1,0 +1,457 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout>
+	<!-- Main Hero Container -->
+	<main class="hero-main page-content">
+		<!-- Background Image Layer -->
+		<div class="hero-bg">
+			<div
+				class="hero-bg-img"
+				style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB7TTvw7nhDGm43sN6biumP_wIabrjpTvJWz2012wAklplm27FZR8tbcSG4f-c1mK_o0HIy8_imPm_gZ2Zv30xwc_zdpnD1gf_FHdMf_9dX5xi4Ek3s8NBZYIaKgzgnjnbIrWdbbSU_iKfs5cBYEcV9S55zHQYFoKkdp_oyyaVYosAIAjoG1h-2pQFevhniZWwiW-Um9IcxsIBvPDOwgErGMINVWL3L69JkrtcUM-XIqLFryriohQwAc9i6K3rAm1pzeCY36L342_xm');"
+			>
+			</div>
+			<!-- Gradient Overlay -->
+			<div class="hero-overlay"></div>
+		</div>
+
+		<!-- Hero Content Section -->
+		<section class="hero-content">
+			<div class="hero-text-group">
+				<div class="hero-badge" data-i18n="index.badge">
+					El Nuevo Capítulo de los Destilados Chilenos
+				</div>
+
+				<h1 class="hero-title">
+					<span data-i18n="index.title"
+						>Senshin: El Nuevo Capítulo de los</span
+					><br />
+					<span class="highlight" data-i18n="index.title.highlight"
+						>Destilados</span
+					>
+					<span data-i18n="index.title.end"> en Chile</span>
+				</h1>
+
+				<p class="hero-subtitle">
+					<span data-i18n="index.subtitle"
+						>Chile es tierra de grandes vinos; ahora es tiempo de
+						escribir su historia en el</span
+					>
+					<span class="font-medium" data-i18n="index.subtitle.whisky">
+						Whisky</span
+					>
+					<span data-i18n="index.subtitle.and"> y el</span>
+					<span class="font-medium" data-i18n="index.subtitle.brandy">
+						Brandy</span
+					>.
+				</p>
+
+				<div class="hero-actions">
+					<a
+						href="/contacto"
+						class="btn-primary-hero"
+						data-i18n="index.cta.primary"
+					>
+						Entrar a la Experiencia
+					</a>
+					<a
+						href="/nosotros"
+						class="btn-secondary-hero"
+						data-i18n="index.cta.secondary"
+					>
+						Nuestra Historia
+					</a>
+				</div>
+			</div>
+		</section>
+
+		<!-- Footer / Scroll Indicator -->
+		<div class="hero-footer">
+			<div class="scroll-indicator">
+				<span class="scroll-text" data-i18n="index.scroll"
+					>Desplaza para Explorar</span
+				>
+				<div class="scroll-line">
+					<div class="scroll-dot"></div>
+				</div>
+			</div>
+
+			<div class="footer-bottom">
+				<div class="footer-lang">
+					<span class="material-symbols-outlined lang-icon"
+						>language</span
+					>
+					<span class="lang-text">ES | EN</span>
+				</div>
+				<div class="footer-socials">
+					<a href="#" class="social-link">Instagram</a>
+					<a href="#" class="social-link">Vimeo</a>
+					<a href="#" class="social-link">Journal</a>
+				</div>
+			</div>
+		</div>
+
+		<!-- Side Accents -->
+		<div class="side-accents">
+			<div class="accent-dots">
+				<div class="dot-active"></div>
+				<div class="dot"></div>
+				<div class="dot"></div>
+				<div class="dot"></div>
+			</div>
+		</div>
+	</main>
+</Layout>
+
+<style>
+	.hero-main {
+		position: relative;
+		min-height: calc(100vh - var(--nav-height-mobile));
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		overflow: hidden;
+	}
+
+	@media (min-width: 1024px) {
+		.hero-main {
+			min-height: calc(100vh - var(--nav-height));
+		}
+	}
+
+	/* Background */
+	.hero-bg {
+		position: absolute;
+		inset: 0;
+		z-index: 0;
+	}
+
+	.hero-bg-img {
+		width: 100%;
+		height: 100%;
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
+		transform: scale(1.03);
+		transition: transform 8s ease-out;
+	}
+
+	.hero-main:hover .hero-bg-img {
+		transform: scale(1);
+	}
+
+	.hero-overlay {
+		position: absolute;
+		inset: 0;
+		background: linear-gradient(
+			to bottom,
+			rgba(10, 9, 8, 0.4) 0%,
+			rgba(10, 9, 8, 0.2) 50%,
+			rgba(10, 9, 8, 0.85) 100%
+		);
+		z-index: 10;
+	}
+
+	/* Hero Content */
+	.hero-content {
+		position: relative;
+		z-index: 20;
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		padding: 0 var(--space-md);
+		text-align: center;
+		max-width: 1100px;
+		margin: 0 auto;
+		width: 100%;
+	}
+
+	.hero-text-group {
+		animation: fadeIn 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 0;
+	}
+
+	.hero-badge {
+		display: inline-block;
+		padding: 5px 20px;
+		border: 1px solid rgba(236, 156, 19, 0.4);
+		border-radius: var(--radius-full);
+		background-color: rgba(236, 156, 19, 0.08);
+		margin-bottom: 32px;
+		color: var(--color-primary);
+		font-size: 10px;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.35em;
+	}
+
+	.hero-title {
+		color: var(--color-text-main);
+		font-size: 44px;
+		font-weight: 200;
+		line-height: 1.1;
+		letter-spacing: -0.02em;
+		margin-bottom: 24px;
+		text-transform: none;
+		text-shadow: 0 0 40px rgba(236, 156, 19, 0.15);
+	}
+
+	@media (min-width: 640px) {
+		.hero-title {
+			font-size: 56px;
+		}
+	}
+
+	@media (min-width: 768px) {
+		.hero-title {
+			font-size: min(7vw, 90px);
+		}
+	}
+
+	@media (min-width: 1440px) {
+		.hero-title {
+			font-size: 7vw;
+		}
+	}
+
+	.highlight {
+		font-weight: 800;
+		font-style: italic;
+		color: var(--color-primary);
+	}
+
+	.hero-subtitle {
+		color: rgba(255, 255, 255, 0.7);
+		font-size: var(--text-lg);
+		font-weight: 300;
+		max-width: 600px;
+		margin: 0 auto 40px;
+		line-height: 1.65;
+	}
+
+	@media (min-width: 768px) {
+		.hero-subtitle {
+			font-size: var(--text-xl);
+		}
+	}
+
+	.font-medium {
+		color: var(--color-text-main);
+		font-weight: 600;
+	}
+
+	/* Actions */
+	.hero-actions {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		gap: 20px;
+		padding-top: 8px;
+	}
+
+	@media (min-width: 640px) {
+		.hero-actions {
+			flex-direction: row;
+		}
+	}
+
+	.btn-primary-hero {
+		min-width: 240px;
+		padding: 20px 40px;
+		background-color: var(--color-text-main);
+		color: var(--color-text-dark);
+		font-weight: 900;
+		text-transform: uppercase;
+		letter-spacing: 0.2em;
+		font-size: var(--text-xs);
+		border-radius: var(--radius-sm);
+		transition: all 0.5s ease;
+		text-align: center;
+		box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+	}
+
+	.btn-primary-hero:hover {
+		background-color: var(--color-primary);
+		color: var(--color-text-dark);
+		box-shadow: 0 10px 40px rgba(236, 156, 19, 0.3);
+	}
+
+	.btn-secondary-hero {
+		min-width: 200px;
+		padding: 20px 40px;
+		border: 1px solid rgba(255, 255, 255, 0.25);
+		color: var(--color-text-main);
+		font-weight: 900;
+		text-transform: uppercase;
+		letter-spacing: 0.2em;
+		font-size: var(--text-xs);
+		border-radius: var(--radius-sm);
+		transition: all 0.5s ease;
+		text-align: center;
+	}
+
+	.btn-secondary-hero:hover {
+		background-color: rgba(255, 255, 255, 0.08);
+		border-color: rgba(255, 255, 255, 0.5);
+	}
+
+	/* Footer Section */
+	.hero-footer {
+		position: relative;
+		z-index: 20;
+		width: 100%;
+		padding: 0 48px 32px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 24px;
+	}
+
+	@media (min-width: 768px) {
+		.hero-footer {
+			padding: 0 64px 40px;
+		}
+	}
+
+	.scroll-indicator {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 12px;
+	}
+
+	.scroll-text {
+		color: rgba(236, 156, 19, 0.6);
+		font-size: 10px;
+		font-weight: 900;
+		text-transform: uppercase;
+		letter-spacing: 0.4em;
+	}
+
+	.scroll-line {
+		width: 1px;
+		height: 56px;
+		background: linear-gradient(
+			to bottom,
+			rgba(236, 156, 19, 0.6),
+			transparent
+		);
+		position: relative;
+	}
+
+	.scroll-dot {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 40%;
+		background-color: var(--color-primary);
+		animation: scrollPulse 2s ease-in-out infinite;
+	}
+
+	@keyframes scrollPulse {
+		0%,
+		100% {
+			opacity: 0.4;
+			transform: translateY(0);
+		}
+		50% {
+			opacity: 1;
+			transform: translateY(8px);
+		}
+	}
+
+	.footer-bottom {
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	.footer-lang {
+		display: flex;
+		align-items: center;
+		gap: 8px;
+		color: rgba(255, 255, 255, 0.4);
+	}
+
+	.lang-icon {
+		font-size: 18px;
+	}
+
+	.lang-text {
+		font-size: 11px;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.2em;
+	}
+
+	.footer-socials {
+		display: none;
+		gap: 32px;
+	}
+
+	@media (min-width: 768px) {
+		.footer-socials {
+			display: flex;
+		}
+	}
+
+	.social-link {
+		color: rgba(255, 255, 255, 0.4);
+		font-size: 10px;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.2em;
+		transition: color 0.3s ease;
+		text-decoration: none;
+	}
+
+	.social-link:hover {
+		color: rgba(255, 255, 255, 0.9);
+	}
+
+	/* Side Accents */
+	.side-accents {
+		display: none;
+		position: absolute;
+		left: 28px;
+		top: 50%;
+		transform: translateY(-50%);
+		z-index: 30;
+	}
+
+	@media (min-width: 1024px) {
+		.side-accents {
+			display: block;
+		}
+	}
+
+	.accent-dots {
+		display: flex;
+		flex-direction: column;
+		gap: 28px;
+	}
+
+	.dot-active {
+		width: 5px;
+		height: 5px;
+		background-color: var(--color-primary);
+		border-radius: var(--radius-full);
+		box-shadow: 0 0 10px rgba(236, 156, 19, 0.6);
+	}
+
+	.dot {
+		width: 4px;
+		height: 4px;
+		background-color: rgba(255, 255, 255, 0.2);
+		border-radius: var(--radius-full);
+	}
+</style>

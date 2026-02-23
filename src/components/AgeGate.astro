@@ -1,0 +1,303 @@
+---
+
+---
+
+<div id="age-gate" class="age-gate-container">
+  <!-- Cinematic Background -->
+  <div class="age-gate-bg">
+    <div class="bg-overlay"></div>
+    <img
+      src="https://lh3.googleusercontent.com/aida-public/AB6AXuCibZIsVr2SeReUyPfz9IX6uFscErcPxWISr1I4b98o1VwAHA00_BgVw4N8yOnMh_d2Yr9BrG-8Jj3tZct2W7VcXjDxAhjaNRBEEqZBXIXXFItnBcx1ct-ry5X23cIgOEy6_BRFjfmZd-OGqkI1f9JCW8N0AEnQe6fv8-KRhkatTRAmrxpDVYSJTZomgjJcWrLrkiNWbZRJR53-bbhZ4cMdVdXRqjoSFTZY494CstpaZLeak2SxNo2CE6VtmxPe6rHCpIFovnlqyRzF"
+      alt="Senshin Bottle"
+      class="bg-image"
+    />
+  </div>
+
+  <!-- Content Overlay -->
+  <main class="age-gate-content">
+    <!-- Logo Section -->
+    <div class="logo-section">
+      <h1 class="logo-title">Senshin</h1>
+      <div class="logo-divider"></div>
+    </div>
+
+    <!-- Age Gate Card -->
+    <div class="age-gate-card">
+      <h2 class="card-subtitle">Entra en el reino de lo esencial</h2>
+      <p class="card-title">¿Eres mayor de edad?</p>
+
+      <div class="age-gate-btns">
+        <!-- Yes Button -->
+        <button id="confirm-age" class="btn-yes">
+          <span class="btn-fill"></span>
+          <span class="btn-text">SÍ, SOY MAYOR</span>
+        </button>
+        <!-- No Button -->
+        <button id="reject-age" class="btn-no">
+          <span class="btn-fill no-fill"></span>
+          <span class="btn-text">NO</span>
+        </button>
+      </div>
+
+      <p class="legal-notice">
+        Debes tener la edad legal para comprar alcohol para acceder.
+      </p>
+    </div>
+  </main>
+
+  <!-- Global Footer Message -->
+  <div class="age-gate-footer">
+    <p class="footer-msg">Disfruta responsablemente · Senshin Spirits Chile</p>
+  </div>
+</div>
+
+<style>
+    transition: opacity 1s ease-out;
+  }
+
+  .age-gate-container.hidden {
+    display: none !important;
+    pointer-events: none !important;
+  }
+
+  .age-gate-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .bg-overlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 10;
+  }
+
+  .bg-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .age-gate-content {
+    position: relative;
+    z-index: 20;
+    width: 100%;
+    max-width: 896px;
+    padding: 0 var(--space-md);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    pointer-events: auto;
+  }
+
+  .logo-section {
+    margin-bottom: 48px;
+    pointer-events: none;
+  }
+
+  .logo-title {
+    color: var(--color-primary);
+    font-size: var(--text-5xl);
+    font-weight: 200;
+    text-transform: uppercase;
+    letter-spacing: 0.5em;
+  }
+
+  @media (min-width: 768px) {
+    .logo-title {
+      font-size: var(--text-7xl);
+    }
+  }
+
+  .logo-divider {
+    height: 1px;
+    width: 96px;
+    background-color: rgba(236, 156, 19, 0.4);
+    margin: 24px auto 0;
+  }
+
+  .age-gate-card {
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(40px);
+    -webkit-backdrop-filter: blur(40px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-xl);
+    padding: 40px;
+    max-width: 672px;
+    width: 100%;
+    box-shadow: var(--shadow-premium);
+    position: relative;
+    overflow: hidden;
+  }
+
+  @media (min-width: 768px) {
+    .age-gate-card {
+      padding: 64px;
+    }
+  }
+
+  .card-subtitle {
+    color: var(--color-text-main);
+    font-size: var(--text-lg);
+    font-weight: 300;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+    font-style: italic;
+    letter-spacing: 0.2em;
+    opacity: 0.8;
+  }
+
+  .card-title {
+    color: var(--color-text-main);
+    font-size: var(--text-3xl);
+    font-weight: 900;
+    margin-bottom: 48px;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    line-height: 1;
+  }
+
+  @media (min-width: 768px) {
+    .card-title {
+      font-size: var(--text-5xl);
+    }
+  }
+
+  .age-gate-btns {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+
+  @media (min-width: 768px) {
+    .age-gate-btns {
+      flex-direction: row;
+    }
+  }
+
+  .btn-yes,
+  .btn-no {
+    position: relative;
+    width: 100%;
+    height: 64px;
+    overflow: hidden;
+    border-radius: var(--radius-sm);
+    transition: var(--transition-smooth);
+    background: none;
+  }
+
+  @media (min-width: 768px) {
+    .btn-yes,
+    .btn-no {
+      width: 256px;
+    }
+  }
+
+  .btn-yes {
+    border: 1px solid var(--color-primary);
+    color: var(--color-primary);
+  }
+
+  .btn-no {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--color-text-main);
+  }
+
+  .btn-fill {
+    position: absolute;
+    inset: 0;
+    width: 0;
+    background-color: var(--color-primary);
+    transition: var(--transition-smooth);
+    z-index: 0;
+  }
+
+  .no-fill {
+    background-color: rgba(255, 255, 255, 0.05);
+  }
+
+  .btn-yes:hover .btn-fill,
+  .btn-no:hover .btn-fill {
+    width: 100%;
+  }
+
+  .btn-yes:hover {
+    color: var(--color-bg-dark);
+  }
+
+  .btn-text {
+    position: relative;
+    z-index: 10;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: var(--text-xs);
+  }
+
+  .legal-notice {
+    margin-top: 48px;
+    color: var(--color-text-dim);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-weight: 900;
+    font-style: italic;
+    opacity: 0.6;
+  }
+
+  .age-gate-footer {
+    position: fixed;
+    bottom: 48px;
+    width: 100%;
+    text-align: center;
+    padding: 0 var(--space-md);
+    z-index: 30;
+    pointer-events: none;
+  }
+
+  .footer-msg {
+    color: var(--color-text-dim);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    font-weight: 900;
+    opacity: 0.3;
+  }
+</style>
+
+<script>
+  const ageGate = document.getElementById("age-gate");
+  const confirmBtn = document.getElementById("confirm-age");
+  const rejectBtn = document.getElementById("reject-age");
+
+  if (ageGate) {
+    if (sessionStorage.getItem("age-verified") === "true") {
+      ageGate.classList.add("hidden");
+    }
+
+    confirmBtn?.addEventListener("click", () => {
+      sessionStorage.setItem("age-verified", "true");
+      ageGate.style.opacity = "0";
+      ageGate.style.pointerEvents = "none";
+      setTimeout(() => {
+        ageGate.classList.add("hidden");
+      }, 1000);
+    });
+
+    rejectBtn?.addEventListener("click", () => {
+      window.location.href = "https://www.google.com";
+    });
+  }
+</script>
+
+<style>
+  #age-gate {
+    transition: opacity 1s ease-out;
+  }
+</style>

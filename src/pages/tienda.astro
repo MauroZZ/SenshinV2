@@ -1,0 +1,602 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const collection = [
+  {
+    name: "Senshin Single Malt",
+    type: "12 Años · Roble Francés",
+    price: "$84.900",
+    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCEDiU0HZPgvXbxbXj-434H-HgmNmZ3_kuYGCsqC7iq4At1yv8mRqtu5KNNK1YGioyPpVgfX264zy7yYtNG6eNTnHS8uAfHp0bFxHqn8YuJoD865taJGr5T5Fdn9oH1Ec1MfDw9nNLrsSM3aVkG2j2Kyx6iT9R5txVJ4UslzH2pPEXuUkvCCCQQe7WjLjobzwBJFwdMeQnO9NnoP1HaA8DzUji3JrM--2ve96DUWAnjblZ38xlVBhE4i8N4ov_jhko70S792FYjzV7s",
+    status: "DISPONIBLE",
+    notes: [
+      { icon: "forest", label: "Madera Noble" },
+      { icon: "wb_sunny", label: "Dulzor de Miel" },
+      { icon: "grain", label: "Cereal Tostado" },
+      { icon: "smoke_free", label: "Humo Sutil" }
+    ],
+    specs: [
+      { label: "ABV", value: "43.5%" },
+      { label: "Maduración", value: "Barricas de Ex-Bourbon" },
+      { label: "Región", value: "Valle del Elqui, Chile" }
+    ]
+  },
+  {
+    name: "Senshin Premium Brandy",
+    type: "Solera Especial · Sol Chileno",
+    price: "$62.500",
+    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBJM3-Hv2wNR5GbNrvdXbr7T2_olXZ63OqOKcVMfSurNruve4gMxTiDu7vKoVUC2HismgsNttKZ1QAU7plxdkMymmF36hG8XwkJBSyNKtUrP6iqjaA-YnZMJoYCulUdLB2E1aY0zvRldmjDUFy_LpbaG8QYSe8Sep8yCyfi5WBJMaS5WwQ45DlbWbWok50vbDEOEvt4fZVGVDw2l1zgkkcR7BKFAwKBjMdssEK-cpNEv7240BMVJ6ZI7pboX0G4f3zT1jmuhgpKbwfx",
+    status: "EDICIÓN LIMITADA",
+    notes: [
+      { icon: "liquor", label: "Vainilla" },
+      { icon: "cookie", label: "Frutos Secos" },
+      { icon: "bakery_dining", label: "Caramelo" },
+      { icon: "spa", label: "Nuez Moscada" }
+    ],
+    specs: [
+      { label: "ABV", value: "40%" },
+      { label: "Destilación", value: "Alambique de Cobre" },
+      { label: "Cosecha", value: "Uvas Moscatel del Valle" }
+    ]
+  }
+];
+---
+
+<Layout>
+  <main class="tienda-main page-content">
+    <!-- Hero Editorial Section -->
+    <section class="hero-noi-section">
+      <div class="hero-noi-bg">
+        <div class="hero-noi-overlay"></div>
+        <img 
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuDWaslhE6c4cdkbKGpKBvZLOvXGKOyYCLQvVFu09hMEXSNhM7qPQsYXkFxfs3nDcuL7VgAFuRl6pUaRKnttmGG4mfL9vr74JjwLaPdskdHWefVGBeq2CELiMScogGDdY9nD6DjZcFM3eOC1rGxjDXa2gdKsxuvR0z_SlGAXnsp4HYtJW8udLXtlBmtaeEvL-czj2tnNoOF1l92pJc7jXdR6k91VHMVbQ1DgPALN14imhtN5uVSBBUuhAM4gZxDHxwS7NdILEmvJceZ9" 
+          alt="Distillery background" 
+          class="hero-noi-image"
+        />
+      </div>
+      <div class="hero-noi-content">
+        <span class="hero-noi-badge" data-i18n="tienda.badge">Destilados de Autor</span>
+        <h2 class="hero-noi-title" data-i18n="tienda.title">
+          EL ESPÍRITU DEL SOL CHILENO
+        </h2>
+        <p class="hero-noi-desc italic-desc" data-i18n="tienda.desc">
+          Notas de madera noble y el dulzor sutil del sol chileno capturado en cada gota. Una oda a la tierra y al tiempo.
+        </p>
+        <div class="hero-actions">
+          <button class="btn-primary-hero" data-i18n="tienda.cta">
+            Explorar Selección
+          </button>
+        </div>
+      </div>
+      <div class="scroll-indicator-bottom">
+        <span class="scroll-text">Deslizar</span>
+        <span class="material-symbols-outlined scroll-icon">expand_more</span>
+      </div>
+    </section>
+
+    <!-- Collection Gallery -->
+    <section class="gallery-section">
+      <div class="gallery-header">
+        <div class="header-text-col">
+          <h3 class="badge-label">La Colección Principal</h3>
+          <h2 class="header-title">Selección Curada</h2>
+        </div>
+        <div class="filter-group">
+          <button class="filter-btn active">Todos</button>
+          <button class="filter-btn">Whisky</button>
+          <button class="filter-btn">Brandy</button>
+        </div>
+      </div>
+
+      <div class="product-grid">
+        {collection.map((product) => (
+          <div class="product-card">
+            <img 
+              src={product.image} 
+              alt={product.name} 
+              class="product-image"
+            />
+            
+            <!-- Base Info Overlay (Visible by Default) -->
+            <div class="product-info-overlay">
+              <div class="info-flex">
+                <div class="base-meta">
+                  <h4 class="product-name">{product.name}</h4>
+                  <p class="product-type">{product.type}</p>
+                </div>
+                <span class="product-price">{product.price}</span>
+              </div>
+            </div>
+
+            <!-- Detailed Technical Overlay (Hover State) -->
+            <div class="product-detail-overlay">
+              <div class="detail-content">
+                <div class="detail-header">
+                  <h4 class="detail-name">{product.name}</h4>
+                  <span class="status-badge">{product.status}</span>
+                </div>
+                
+                <div class="detail-section">
+                  <h5 class="detail-label">Notas de Cata</h5>
+                  <div class="notes-grid">
+                    {product.notes.map((note) => (
+                      <div class="note-item">
+                        <span class="material-symbols-outlined note-icon">{note.icon}</span>
+                        <span class="note-text">{note.label}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div class="detail-section">
+                  <h5 class="detail-label">Ficha Técnica</h5>
+                  <ul class="specs-list">
+                    {product.specs.map((spec) => (
+                      <li class="spec-item">
+                        <span class="spec-label">{spec.label}</span>
+                        <span class="spec-value">{spec.value}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+
+              <button class="buy-btn">
+                <span class="material-symbols-outlined">shopping_bag</span>
+                Comprar Ahora
+              </button>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  .tienda-main {
+    position: relative;
+    background-color: var(--color-bg-dark);
+    color: var(--color-text-main);
+  }
+
+  .hero-noi-section {
+    position: relative;
+    height: 85vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 0 var(--space-md);
+  }
+
+  .hero-noi-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .hero-noi-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(10, 9, 8, 0.2) 0%, transparent 50%, #0a0908 100%);
+    z-index: 10;
+  }
+
+  .hero-noi-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.6;
+    transform: scale(1.05);
+    filter: brightness(0.5);
+  }
+
+  .hero-noi-content {
+    position: relative;
+    z-index: 20;
+    text-align: center;
+    max-width: 896px;
+    animation: fadeIn 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  }
+
+  .hero-noi-badge {
+    display: inline-block;
+    color: var(--color-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.4em;
+    font-size: var(--text-xs);
+    margin-bottom: 24px;
+    font-weight: 900;
+  }
+
+  .hero-noi-title {
+    font-size: 60px;
+    font-weight: 900;
+    margin-bottom: 32px;
+    letter-spacing: -0.05em;
+    line-height: 1;
+    text-transform: uppercase;
+  }
+
+  @media (min-width: 768px) {
+    .hero-noi-title {
+      font-size: 80px;
+    }
+  }
+
+  @media (min-width: 1440px) {
+    .hero-noi-title {
+      font-size: var(--text-8xl);
+    }
+  }
+
+  .italic-light {
+    color: var(--color-primary);
+    font-style: italic;
+    font-weight: 200;
+  }
+
+  .hero-noi-desc {
+    font-size: var(--text-xl);
+    color: var(--color-text-dim);
+    max-width: 672px;
+    margin: 0 auto;
+    font-weight: 300;
+    line-height: 1.6;
+  }
+
+  .italic-desc {
+    font-style: italic;
+  }
+
+  @media (min-width: 768px) {
+    .hero-noi-desc {
+      font-size: var(--text-2xl);
+    }
+  }
+
+  .hero-actions {
+    margin-top: 48px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    justify-content: center;
+  }
+
+  @media (min-width: 768px) {
+    .hero-actions {
+      flex-direction: row;
+    }
+  }
+
+  .btn-primary-hero {
+    background-color: var(--color-primary);
+    color: var(--color-bg-dark);
+    padding: 20px 48px;
+    border-radius: var(--radius-sm);
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-size: var(--text-xs);
+    transition: var(--transition-smooth);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  }
+
+  .btn-primary-hero:hover {
+    background-color: var(--color-text-main);
+    color: var(--color-text-dark);
+    transform: translateY(-2px);
+  }
+
+  .scroll-indicator-bottom {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    animation: bounce 2s infinite;
+    opacity: 0.4;
+  }
+
+  .scroll-text {
+    font-size: 11px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+  }
+
+  .scroll-icon {
+    font-size: 18px;
+  }
+
+  .gallery-section {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 96px var(--space-md);
+    width: 100%;
+  }
+
+  .gallery-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 64px;
+    gap: 24px;
+  }
+
+  @media (min-width: 768px) {
+    .gallery-header {
+      flex-direction: row;
+    }
+  }
+
+  .header-text-col {
+    max-width: 576px;
+    text-align: left;
+    width: 100%;
+  }
+
+  .badge-label {
+    color: var(--color-primary);
+    text-transform: uppercase;
+    font-size: var(--text-xs);
+    font-weight: 900;
+    letter-spacing: 0.3em;
+    margin-bottom: 16px;
+  }
+
+  .header-title {
+    font-size: var(--text-5xl);
+    font-weight: 900;
+    text-transform: uppercase;
+  }
+
+  @media (min-width: 768px) {
+    .header-title {
+      font-size: var(--text-6xl);
+    }
+  }
+
+  .filter-group {
+    display: flex;
+    gap: 24px;
+  }
+
+  .filter-btn {
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-weight: 700;
+    padding: 8px 16px;
+    color: var(--color-text-dim);
+    transition: var(--transition-fast);
+    border-bottom: 2px solid transparent;
+  }
+
+  .filter-btn:hover {
+    color: var(--color-text-main);
+  }
+
+  .filter-btn.active {
+    font-weight: 900;
+    color: var(--color-text-main);
+    border-bottom-color: var(--color-primary);
+  }
+
+  .product-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  @media (min-width: 768px) {
+    .product-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .product-card {
+    position: relative;
+    aspect-ratio: 4/5;
+    background-color: #171717;
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: var(--shadow-premium);
+    transition: var(--transition-smooth);
+  }
+
+  .product-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 1s ease, filter 1s ease;
+  }
+
+  .product-card:hover .product-image {
+    transform: scale(1.1);
+    filter: brightness(0.5);
+  }
+
+  .product-info-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 40px;
+    z-index: 10;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.5) 50%, transparent 100%);
+    transition: opacity 0.5s ease;
+  }
+
+  .product-card:hover .product-info-overlay {
+    opacity: 0;
+  }
+
+  .info-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+
+  .product-name {
+    font-size: var(--text-3xl);
+    font-weight: 900;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+
+  .product-type {
+    color: var(--color-primary);
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+  }
+
+  .product-price {
+    font-size: var(--text-3xl);
+    font-weight: 300;
+    color: var(--color-primary);
+  }
+
+  .product-detail-overlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    padding: 48px;
+    opacity: 0;
+    transition: var(--transition-smooth);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid rgba(236, 156, 19, 0.2);
+    border-radius: var(--radius-xl);
+    z-index: 20;
+  }
+
+  .product-card:hover .product-detail-overlay {
+    opacity: 1;
+  }
+
+  .detail-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 40px;
+  }
+
+  .detail-name {
+    font-size: var(--text-4xl);
+    font-weight: 900;
+    text-transform: uppercase;
+  }
+
+  .status-badge {
+    background-color: var(--color-primary);
+    color: #000;
+    padding: 6px 16px;
+    border-radius: var(--radius-sm);
+    font-size: 11px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .detail-section {
+    margin-bottom: 48px;
+  }
+
+  .detail-label {
+    color: var(--color-primary);
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    font-weight: 900;
+    margin-bottom: 32px;
+  }
+
+  .notes-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+
+  .note-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .note-icon {
+    color: var(--color-primary);
+    font-size: 24px;
+  }
+
+  .note-text {
+    font-size: var(--text-sm);
+    font-weight: 300;
+    letter-spacing: 0.05em;
+    color: #e2e8f0;
+  }
+
+  .specs-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    font-size: var(--text-sm);
+    font-weight: 300;
+  }
+
+  .spec-item {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding-bottom: 12px;
+  }
+
+  .spec-label {
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-size: 10px;
+    font-weight: 700;
+  }
+
+  .spec-value {
+    color: #e2e8f0;
+  }
+
+  .buy-btn {
+    width: 100%;
+    background-color: var(--color-primary);
+    padding: 20px 0;
+    border-radius: var(--radius-sm);
+    color: var(--color-bg-dark);
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    transition: var(--transition-smooth);
+    font-size: var(--text-xs);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  }
+
+  .buy-btn:hover {
+    background-color: var(--color-text-main);
+    color: var(--color-text-dark);
+    transform: scale(1.02);
+  }
+</style>

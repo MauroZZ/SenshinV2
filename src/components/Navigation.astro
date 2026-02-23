@@ -1,0 +1,221 @@
+---
+
+---
+
+<header class="nav-header">
+  <div class="nav-logo-group">
+    <div class="logo-svg">
+      <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M44 4H30.6666V17.3334H17.3334V30.6666H4V44H44V4Z"
+          fill="currentColor"></path>
+      </svg>
+    </div>
+    <a href="/" class="logo-text">Senshin</a>
+  </div>
+
+  <nav class="nav-menu">
+    <a class="nav-link" href="/tienda" data-i18n="nav.whisky">Whisky</a>
+    <a class="nav-link" href="/tienda" data-i18n="nav.brandy">Brandy</a>
+    <a class="nav-link" href="/nosotros" data-i18n="nav.historia">Historia</a>
+    <a class="nav-link" href="/comunidad" data-i18n="nav.comunidad">Comunidad</a
+    >
+    <a class="nav-link" href="/contacto" data-i18n="nav.contacto">Contacto</a>
+  </nav>
+
+  <div class="nav-actions">
+    <!-- Language Switcher -->
+    <div class="lang-switcher">
+      <button class="lang-btn lang-active" data-lang-btn="es">ES</button>
+      <span class="lang-divider">|</span>
+      <button class="lang-btn" data-lang-btn="en">EN</button>
+    </div>
+    <button class="account-btn" data-i18n="nav.cuenta">Mi Cuenta</button>
+    <button class="menu-toggle">
+      <span class="material-symbols-outlined menu-icon">menu</span>
+    </button>
+  </div>
+</header>
+
+<style>
+  .nav-header {
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    width: 100%;
+    height: var(--nav-height-mobile);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    background: rgba(0, 0, 0, 0.2);
+    padding: 0 var(--space-md);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: var(--transition-fast);
+  }
+
+  @media (min-width: 1024px) {
+    .nav-header {
+      height: var(--nav-height);
+      padding: 0 var(--space-xl);
+    }
+  }
+
+  .nav-logo-group {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    cursor: pointer;
+  }
+
+  .logo-svg {
+    color: var(--color-primary);
+    width: 32px;
+    height: 32px;
+  }
+
+  @media (min-width: 1024px) {
+    .logo-svg {
+      width: 36px;
+      height: 36px;
+    }
+  }
+
+  .logo-text {
+    color: var(--color-text-main);
+    font-size: var(--text-base);
+    font-weight: 900;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  @media (min-width: 1024px) {
+    .logo-text {
+      font-size: var(--text-xl);
+    }
+  }
+
+  .nav-menu {
+    display: none;
+    align-items: center;
+    gap: var(--space-md);
+  }
+
+  @media (min-width: 1024px) {
+    .nav-menu {
+      display: flex;
+      gap: var(--space-xl);
+    }
+  }
+
+  .nav-link {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    transition: var(--transition-fast);
+  }
+
+  @media (min-width: 1024px) {
+    .nav-link {
+      font-size: var(--text-xs);
+      letter-spacing: 0.3em;
+    }
+  }
+
+  .nav-link:hover {
+    color: var(--color-primary);
+    letter-spacing: 0.35em;
+    opacity: 1;
+  }
+
+  .nav-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+  }
+
+  .account-btn {
+    display: none;
+    padding: 10px 24px;
+    background-color: var(--color-primary);
+    color: var(--color-bg-dark);
+    font-size: 10px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    border-radius: var(--radius-sm);
+    transition: var(--transition-fast);
+    box-shadow: 0 0 15px rgba(236, 156, 19, 0.3);
+  }
+
+  @media (min-width: 1024px) {
+    .account-btn {
+      display: flex;
+      font-size: var(--text-xs);
+      padding: 12px 32px;
+      letter-spacing: 0.15em;
+    }
+  }
+
+  .account-btn:hover {
+    background-color: var(--color-text-main);
+    color: var(--color-text-dark);
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.2);
+  }
+
+  .menu-toggle {
+    color: var(--color-text-main);
+    display: flex;
+    align-items: center;
+  }
+
+  .menu-icon {
+    font-size: 24px;
+  }
+
+  @media (min-width: 1024px) {
+    .menu-icon {
+      font-size: 28px;
+    }
+  }
+
+  /* Language Switcher */
+  .lang-switcher {
+    display: none;
+    align-items: center;
+    gap: 6px;
+  }
+
+  @media (min-width: 768px) {
+    .lang-switcher {
+      display: flex;
+    }
+  }
+
+  .lang-btn {
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 10px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    cursor: pointer;
+    padding: 2px 0;
+    transition: color 0.2s ease;
+  }
+
+  .lang-btn:hover,
+  .lang-btn.lang-active {
+    color: var(--color-primary);
+  }
+
+  .lang-divider {
+    color: rgba(255, 255, 255, 0.2);
+    font-size: 10px;
+    font-weight: 300;
+  }
+</style>

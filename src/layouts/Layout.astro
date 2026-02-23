@@ -1,0 +1,49 @@
+---
+import "../styles/global.css";
+import AgeGate from "../components/AgeGate.astro";
+import Navigation from "../components/Navigation.astro";
+import Footer from "../components/Footer.astro";
+import { translations } from "../i18n/translations.js";
+---
+
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+			rel="stylesheet"
+		/>
+		<meta name="generator" content={Astro.generator} />
+		<title>Senshin | El Nuevo Capítulo de los Destilados</title>
+
+		<!-- Inject translations as global variable -->
+		<script is:inline define:vars={{ translations }}>
+			window.__SENSHIN_I18N__ = translations;
+
+			// Apply lang immediately (before DOMContentLoaded) to avoid flash
+			const savedLang = localStorage.getItem("senshin_lang") || "es";
+			document.documentElement.lang = savedLang;
+		</script>
+	</head>
+	<body>
+		<AgeGate />
+		<Navigation />
+		<slot />
+		<Footer />
+
+		<!-- i18n engine -->
+		<script>
+			import "../i18n/i18n.js";
+		</script>
+	</body>
+</html>

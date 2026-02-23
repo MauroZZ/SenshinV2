@@ -1,0 +1,527 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const founders = [
+    "Alejandro Vargas",
+    "Isabella Rossi",
+    "Elena Soler",
+    "Benjamin Castro",
+    "Sofia Mendez",
+    "Diego Morales",
+    "Gabriel Ruiz",
+    "Lucas Silva",
+    "Mateo Torres",
+    "Camila Rios",
+    "Valentina Luna",
+    "Nicolas Pena",
+    "Sebastian Lopez",
+    "Florencia Diaz",
+    "Tomas Herrera",
+    "Martina Vega",
+];
+
+const names = [
+    "Cristobal Silva",
+    "Fernanda Castro",
+    "Renato Gonzalez",
+    "Antonia Rojas",
+    "Maximiliano Paz",
+    "Ignacia Valdes",
+    "Rodrigo Leiva",
+    "Josefina Pinto",
+    "Alvaro Lagos",
+    "Francisca Ortiz",
+    "Patricio Arce",
+    "Emilia Duran",
+    "Gonzalo Toro",
+    "Catalina Vera",
+    "Andres Vidal",
+    "Pascale Marin",
+    "Eduardo Cid",
+    "Belen Bravo",
+    "Felipe Roman",
+    "Macarena Saez",
+    "Luis Gallardo",
+    "Monserrat Lara",
+    "Victor Parra",
+    "Consuelo Reyes",
+    "Jorge Salas",
+    "Manuela Palma",
+    "Daniel Ulloa",
+    "Paola Olivares",
+    "Manuel Cruz",
+    "Trinidad Moya",
+    "Marcelo Lobos",
+    "Renata Soto",
+    "Christian Caro",
+    "Rafaela Fuentes",
+    "Juan Carlos Ossa",
+    "Maite Henríquez",
+    "Ricardo Tapia",
+    "Javiera Munoz",
+    "Claudia Rivas",
+    "Pablo Segura",
+    "Monica Soto",
+    "Andres Bello",
+    "Silvia Paredes",
+    "Raul Castro",
+    "Viviana Solis",
+    "Marcos Ruiz",
+    "Loreto Valenzuela",
+    "Oscar Godoy",
+];
+---
+
+<Layout>
+    <!-- Subtle Grain and Texture Layers -->
+    <div class="grain-overlay"></div>
+    <div class="hero-radial-bg"></div>
+
+    <main class="comunidad-main page-content">
+        <!-- Hero Section -->
+        <section class="hero-comunidad">
+            <span class="hero-badge" data-i18n="comunidad.badge"
+                >Tributo a la Comunidad</span
+            >
+            <h1 class="hero-title" data-i18n="comunidad.title">
+                Este espíritu es <span class="italic-light">vuestro</span>.
+            </h1>
+            <p class="hero-desc" data-i18n="comunidad.desc">
+                Gracias a quienes financiaron la búsqueda de la pureza. Una oda
+                a nuestra comunidad y el legado que construimos juntos en el
+                corazón de Chile.
+            </p>
+            <div class="hero-separator">
+                <div class="separator-line"></div>
+                <span class="material-symbols-outlined separator-icon"
+                    >expand_more</span
+                >
+                <div class="separator-line"></div>
+            </div>
+        </section>
+
+        <!-- Contributors Section -->
+        <section class="contributors-section">
+            <!-- Filter Tabs -->
+            <div class="filter-tabs">
+                <button class="tab-btn active">Fundadores</button>
+                <button class="tab-btn">Guardianes</button>
+                <button class="tab-btn">Puristas</button>
+            </div>
+
+            <!-- Wall of Honor - Featured Grid -->
+            <div class="wall-grid">
+                <!-- Column 1 -->
+                <div class="wall-col">
+                    <div class="founder-item">
+                        <p class="founder-badge">Fundador 2023</p>
+                        <h3 class="founder-name">{founders[0]}</h3>
+                    </div>
+                    <div class="founder-item">
+                        <p class="founder-badge">Fundador 2023</p>
+                        <h3 class="founder-name">{founders[1]}</h3>
+                    </div>
+                    <div class="founder-item dim">
+                        <h3 class="founder-name extralight">{founders[2]}</h3>
+                    </div>
+                    <div class="founder-item dim">
+                        <h3 class="founder-name extralight">{founders[3]}</h3>
+                    </div>
+                </div>
+
+                <!-- Column 2 -->
+                <div class="wall-col offset">
+                    <div class="founder-item">
+                        <p class="founder-badge">Fundador 2023</p>
+                        <h3 class="founder-name">{founders[4]}</h3>
+                    </div>
+                    <div class="founder-item dim">
+                        <h3 class="founder-name extralight">{founders[5]}</h3>
+                    </div>
+                    <div class="founder-item">
+                        <p class="founder-badge">Fundador 2023</p>
+                        <h3 class="founder-name">{founders[6]}</h3>
+                    </div>
+                    <div class="founder-item dim">
+                        <h3 class="founder-name extralight">{founders[7]}</h3>
+                    </div>
+                </div>
+
+                <!-- Column 3 -->
+                <div class="wall-col">
+                    <div class="founder-item dim">
+                        <h3 class="founder-name extralight">{founders[8]}</h3>
+                    </div>
+                    <div class="founder-item dim">
+                        <h3 class="founder-name extralight">{founders[9]}</h3>
+                    </div>
+                    <div class="founder-item">
+                        <p class="founder-badge">Fundador 2023</p>
+                        <h3 class="founder-name">{founders[10]}</h3>
+                    </div>
+                    <div class="founder-item dim">
+                        <h3 class="founder-name extralight">{founders[11]}</h3>
+                    </div>
+                </div>
+
+                <!-- Column 4 -->
+                <div class="wall-col offset desktop-only">
+                    <div class="founder-item dim">
+                        <h3 class="founder-name extralight">{founders[12]}</h3>
+                    </div>
+                    <div class="founder-item">
+                        <p class="founder-badge">Fundador 2024</p>
+                        <h3 class="founder-name">{founders[13]}</h3>
+                    </div>
+                    <div class="founder-item dim">
+                        <h3 class="founder-name extralight">{founders[14]}</h3>
+                    </div>
+                    <div class="founder-item dim">
+                        <h3 class="founder-name extralight">{founders[15]}</h3>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Extended List -->
+            <div class="extended-list">
+                {names.map((name) => <span class="extended-name">{name}</span>)}
+            </div>
+
+            <!-- Bottom Fade and CTA -->
+            <div class="bottom-cta-section">
+                <div class="cta-divider"></div>
+                <p class="cta-text">¿Quieres ser parte de nuestra historia?</p>
+                <a href="#" class="cta-btn">
+                    <span class="btn-text" data-i18n="comunidad.join"
+                        >Únete a la Comunidad</span
+                    >
+                    <span class="material-symbols-outlined btn-icon"
+                        >arrow_forward</span
+                    >
+                </a>
+            </div>
+        </section>
+    </main>
+</Layout>
+
+<style>
+    .hero-radial-bg {
+        position: fixed;
+        inset: 0;
+        z-index: 0;
+        background: radial-gradient(
+            circle at center,
+            rgba(236, 156, 19, 0.08) 0%,
+            rgba(18, 14, 9, 0) 70%
+        );
+        pointer-events: none;
+    }
+
+    .comunidad-main {
+        position: relative;
+        z-index: 10;
+        display: flex;
+        min-height: 100vh;
+        flex-direction: column;
+    }
+
+    .hero-comunidad {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 96px var(--space-md);
+        text-align: center;
+    }
+
+    .hero-badge {
+        margin-bottom: 16px;
+        font-size: var(--text-xs);
+        font-weight: 900;
+        text-transform: uppercase;
+        letter-spacing: 0.5em;
+        color: rgba(236, 156, 19, 0.6);
+        animation: fadeIn 1s ease-out;
+    }
+
+    .hero-title {
+        max-width: 1024px;
+        font-size: var(--text-5xl);
+        font-weight: 900;
+        line-height: 1.1;
+        letter-spacing: -0.05em;
+        color: var(--color-text-main);
+        text-transform: uppercase;
+        animation: fadeIn 1.2s ease-out;
+    }
+
+    @media (min-width: 768px) {
+        .hero-title {
+            font-size: 80px;
+        }
+    }
+
+    @media (min-width: 1440px) {
+        .hero-title {
+            font-size: var(--text-8xl);
+        }
+    }
+
+    .italic-light {
+        font-style: italic;
+        font-weight: 200;
+        color: var(--color-primary);
+    }
+
+    .hero-desc {
+        margin-top: 32px;
+        max-width: 576px;
+        font-size: var(--text-lg);
+        font-weight: 300;
+        line-height: 1.6;
+        color: var(--color-text-dim);
+        font-style: italic;
+        animation: fadeIn 1.4s ease-out;
+    }
+
+    .hero-separator {
+        margin-top: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+        opacity: 0.4;
+        animation: fadeIn 1.6s ease-out;
+    }
+
+    .separator-line {
+        height: 1px;
+        width: 48px;
+        background-color: rgba(236, 156, 19, 0.3);
+    }
+
+    .separator-icon {
+        color: rgba(236, 156, 19, 0.6);
+    }
+
+    .contributors-section {
+        margin: 0 auto;
+        max-width: 1280px;
+        padding: 0 32px 160px;
+        width: 100%;
+    }
+
+    .filter-tabs {
+        margin-bottom: 64px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 48px;
+        border-bottom: 1px solid rgba(236, 156, 19, 0.1);
+    }
+
+    .tab-btn {
+        padding-bottom: 16px;
+        font-size: var(--text-xs);
+        font-weight: 900;
+        text-transform: uppercase;
+        letter-spacing: 0.3em;
+        color: #64748b;
+        transition: var(--transition-fast);
+        border-bottom: 2px solid transparent;
+        background: none;
+    }
+
+    .tab-btn:hover {
+        color: #cbd5e1;
+    }
+
+    .tab-btn.active {
+        color: var(--color-text-main);
+        border-bottom-color: var(--color-primary);
+    }
+
+    .wall-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 48px 64px;
+    }
+
+    @media (min-width: 768px) {
+        .wall-grid {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+
+    @media (min-width: 1024px) {
+        .wall-grid {
+            grid-template-columns: repeat(4, 1fr);
+        }
+    }
+
+    .wall-col {
+        display: flex;
+        flex-direction: column;
+        gap: 48px;
+    }
+
+    .wall-col.offset {
+        padding-top: 64px;
+    }
+
+    .desktop-only {
+        display: none;
+    }
+
+    @media (min-width: 1024px) {
+        .desktop-only {
+            display: flex;
+        }
+    }
+
+    .founder-item {
+        cursor: default;
+        transition: var(--transition-smooth);
+    }
+
+    .founder-item.dim {
+        opacity: 0.4;
+    }
+
+    .founder-item.dim:hover {
+        opacity: 1;
+    }
+
+    .founder-badge {
+        font-size: 10px;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--color-primary);
+        font-weight: 900;
+        margin-bottom: 4px;
+        opacity: 0.6;
+    }
+
+    .founder-name {
+        font-size: var(--text-xl);
+        font-weight: 300;
+        color: #e2e8f0;
+        transition: var(--transition-fast);
+    }
+
+    .founder-item:hover .founder-name {
+        color: var(--color-primary);
+    }
+
+    .founder-name.extralight {
+        font-weight: 200;
+        color: #94a3b8;
+    }
+
+    .founder-item.dim:hover .founder-name.extralight {
+        color: #e2e8f0;
+    }
+
+    .extended-list {
+        margin-top: 128px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 32px 24px;
+        font-size: var(--text-xs);
+        font-weight: 500;
+        color: #64748b;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+        padding-top: 80px;
+    }
+
+    @media (min-width: 640px) {
+        .extended-list {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+    @media (min-width: 768px) {
+        .extended-list {
+            grid-template-columns: repeat(4, 1fr);
+        }
+    }
+    @media (min-width: 1024px) {
+        .extended-list {
+            grid-template-columns: repeat(6, 1fr);
+        }
+    }
+
+    .extended-name {
+        transition: var(--transition-fast);
+        cursor: default;
+        opacity: 0.6;
+    }
+
+    .extended-name:hover {
+        color: var(--color-primary);
+        opacity: 1;
+    }
+
+    .bottom-cta-section {
+        margin-top: 160px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .cta-divider {
+        height: 128px;
+        width: 1px;
+        background: linear-gradient(
+            to bottom,
+            rgba(236, 156, 19, 0.3),
+            transparent
+        );
+        margin-bottom: 64px;
+    }
+
+    .cta-text {
+        font-size: var(--text-lg);
+        font-weight: 300;
+        color: #94a3b8;
+        margin-bottom: 32px;
+        font-style: italic;
+    }
+
+    .cta-btn {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        background-color: var(--color-text-main);
+        color: var(--color-text-dark);
+        padding: 20px 40px;
+        border-radius: var(--radius-sm);
+        transition: var(--transition-smooth);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        text-decoration: none;
+    }
+
+    .cta-btn:hover {
+        background-color: var(--color-primary);
+        color: var(--color-text-main);
+    }
+
+    .btn-text {
+        font-size: var(--text-xs);
+        font-weight: 900;
+        text-transform: uppercase;
+        letter-spacing: 0.3em;
+    }
+
+    .btn-icon {
+        font-size: 20px;
+        transition: transform 0.5s ease;
+    }
+
+    .cta-btn:hover .btn-icon {
+        transform: translateX(4px);
+    }
+</style>
+
+<style></style>

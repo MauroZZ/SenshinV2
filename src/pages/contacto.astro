@@ -1,0 +1,514 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout>
+    <main class="contacto-main page-content">
+        <div class="split-layout">
+            <!-- Left: Visual Panel (fixed) -->
+            <aside class="visual-panel">
+                <div class="visual-bg">
+                    <img
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDcm8VVFnOWs5B86Hpm42QacYBecdI8v4mNqMdpJ7Te13-eZStMUc2v8wXTT9vGIU-6yIRPjVNC79gv0LMDtBblnu-3rMpUGXMIUjw3ySjoKFGATnXtY85Bq6ucTZlT6YyCQtkH_Gyl6ocWrcssCQRWIO28L6Z5noh91r6ZFeLlHilsv1vSIpL3lymNQ7Ew69QaGcEYhYGxxtDdL0opdn6jPXCNgiNk1Bn8i2GckppxOM-4Y9bWYb461rmYico32qOtMbfNGTk7wSMO"
+                        alt="Copa de whisky con hielo"
+                        class="visual-img"
+                    />
+                    <div class="visual-overlay"></div>
+                </div>
+                <div class="visual-copy">
+                    <span class="visual-eyebrow" data-i18n="contacto.eyebrow"
+                        >Espíritu de Chile</span
+                    >
+                    <h2 class="visual-headline" data-i18n="contacto.headline">
+                        Destilados refinados,<br />creados en el<br />corazón de
+                        los Andes.
+                    </h2>
+                    <div class="visual-divider"></div>
+                </div>
+            </aside>
+
+            <!-- Right: Form Panel -->
+            <section class="form-panel">
+                <div class="form-inner">
+                    <header class="form-header">
+                        <h1 class="form-title" data-i18n="contacto.title">
+                            Contáctanos
+                        </h1>
+                        <p class="form-desc" data-i18n="contacto.desc">
+                            Escríbenos para consultas, distribución o
+                            colaboraciones con Senshin.
+                        </p>
+                    </header>
+
+                    <form class="contact-form" id="contact-form">
+                        <!-- Nombre -->
+                        <div class="field-group">
+                            <label
+                                class="field-label"
+                                for="nombre"
+                                data-i18n="contacto.label.nombre"
+                                >Nombre completo</label
+                            >
+                            <input
+                                class="field-input"
+                                id="nombre"
+                                type="text"
+                                data-i18n-placeholder="contacto.placeholder.nombre"
+                                placeholder="Tu nombre"
+                                required
+                            />
+                        </div>
+
+                        <!-- Email -->
+                        <div class="field-group">
+                            <label
+                                class="field-label"
+                                for="email"
+                                data-i18n="contacto.label.email"
+                                >Correo electrónico</label
+                            >
+                            <input
+                                class="field-input"
+                                id="email"
+                                type="email"
+                                data-i18n-placeholder="contacto.placeholder.email"
+                                placeholder="email@ejemplo.com"
+                                required
+                            />
+                        </div>
+
+                        <!-- Asunto -->
+                        <div class="field-group field-select-wrap">
+                            <label
+                                class="field-label"
+                                for="asunto"
+                                data-i18n="contacto.label.asunto">Asunto</label
+                            >
+                            <select
+                                class="field-input field-select"
+                                id="asunto"
+                            >
+                                <option data-i18n="contacto.option.general"
+                                    >Consulta general</option
+                                >
+                                <option data-i18n="contacto.option.distribución"
+                                    >Distribución mayorista</option
+                                >
+                                <option data-i18n="contacto.option.prensa"
+                                    >Prensa y medios</option
+                                >
+                                <option data-i18n="contacto.option.otro"
+                                    >Otro</option
+                                >
+                            </select>
+                            <span class="material-symbols-outlined select-icon"
+                                >expand_more</span
+                            >
+                        </div>
+
+                        <!-- Mensaje -->
+                        <div class="field-group">
+                            <label
+                                class="field-label"
+                                for="mensaje"
+                                data-i18n="contacto.label.mensaje"
+                                >Mensaje</label
+                            >
+                            <textarea
+                                class="field-input field-textarea"
+                                id="mensaje"
+                                rows="4"
+                                data-i18n-placeholder="contacto.placeholder.mensaje"
+                                placeholder="¿En qué podemos ayudarte?"
+                            ></textarea>
+                        </div>
+
+                        <!-- Submit -->
+                        <div class="form-submit">
+                            <button type="submit" class="btn-submit">
+                                <span data-i18n="contacto.send"
+                                    >Enviar Mensaje</span
+                                >
+                                <span class="material-symbols-outlined"
+                                    >arrow_right_alt</span
+                                >
+                            </button>
+                        </div>
+
+                        <!-- Success message -->
+                        <p
+                            class="form-success"
+                            id="form-success"
+                            data-i18n="contacto.success"
+                        >
+                            ¡Mensaje enviado! Te contactaremos pronto.
+                        </p>
+                    </form>
+
+                    <!-- Press & Collaborations -->
+                    <section class="press-section">
+                        <div class="press-grid">
+                            <div class="press-text">
+                                <h3
+                                    class="press-label"
+                                    data-i18n="contacto.prensa.title"
+                                >
+                                    Prensa y Colaboraciones
+                                </h3>
+                                <p
+                                    class="press-desc"
+                                    data-i18n="contacto.prensa.desc"
+                                >
+                                    Para kits de prensa, alianzas de marca y
+                                    colaboraciones de eventos, contáctanos
+                                    directamente.
+                                </p>
+                            </div>
+                            <div class="press-email">
+                                <a
+                                    href="mailto:hola@senshin.cl"
+                                    class="email-link"
+                                >
+                                    hola@senshin.cl
+                                    <span
+                                        class="material-symbols-outlined email-arrow"
+                                        >north_east</span
+                                    >
+                                </a>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </section>
+        </div>
+    </main>
+</Layout>
+
+<style>
+    .contacto-main {
+        min-height: 100vh;
+        background: var(--color-bg-dark);
+    }
+
+    .split-layout {
+        display: flex;
+        min-height: 100vh;
+    }
+
+    /* ── LEFT VISUAL PANEL ── */
+    .visual-panel {
+        display: none;
+        position: sticky;
+        top: 0;
+        width: 50%;
+        height: 100vh;
+        flex-shrink: 0;
+        overflow: hidden;
+    }
+
+    @media (min-width: 1024px) {
+        .visual-panel {
+            display: block;
+        }
+    }
+
+    .visual-bg {
+        position: absolute;
+        inset: 0;
+    }
+
+    .visual-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    .visual-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+            to right,
+            rgba(18, 14, 9, 0.5) 0%,
+            rgba(18, 14, 9, 0.15) 100%
+        );
+    }
+
+    .visual-copy {
+        position: absolute;
+        bottom: 80px;
+        left: 64px;
+        max-width: 380px;
+    }
+
+    .visual-eyebrow {
+        display: block;
+        color: var(--color-primary);
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: 0.4em;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+    }
+
+    .visual-headline {
+        font-size: clamp(32px, 3.5vw, 48px);
+        font-weight: 200;
+        line-height: 1.15;
+        color: var(--color-text-main);
+        margin-bottom: 24px;
+        text-transform: none;
+    }
+
+    .visual-divider {
+        width: 80px;
+        height: 1px;
+        background: rgba(236, 156, 19, 0.5);
+    }
+
+    /* ── RIGHT FORM PANEL ── */
+    .form-panel {
+        flex: 1;
+        overflow-y: auto;
+        padding: 80px 40px;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+    }
+
+    @media (min-width: 768px) {
+        .form-panel {
+            padding: 80px 64px;
+        }
+    }
+
+    .form-inner {
+        width: 100%;
+        max-width: 520px;
+    }
+
+    /* Header */
+    .form-header {
+        margin-bottom: 48px;
+    }
+
+    .form-title {
+        font-size: clamp(32px, 4vw, 44px);
+        font-weight: 200;
+        letter-spacing: -0.02em;
+        color: var(--color-text-main);
+        margin-bottom: 12px;
+        text-transform: none;
+        line-height: 1.1;
+    }
+
+    .form-desc {
+        color: rgba(255, 255, 255, 0.45);
+        font-size: var(--text-base);
+        font-weight: 300;
+        line-height: 1.7;
+    }
+
+    /* Form fields */
+    .contact-form {
+        display: flex;
+        flex-direction: column;
+        gap: 36px;
+    }
+
+    .field-group {
+        position: relative;
+    }
+
+    .field-label {
+        display: block;
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: 0.25em;
+        text-transform: uppercase;
+        color: var(--color-primary);
+        margin-bottom: 10px;
+    }
+
+    .field-input {
+        width: 100%;
+        background: transparent;
+        border: none;
+        border-bottom: 1px solid rgba(236, 156, 19, 0.3);
+        border-radius: 0;
+        padding: 12px 0;
+        font-size: var(--text-lg);
+        font-family: "Manrope", sans-serif;
+        font-weight: 300;
+        color: var(--color-text-main);
+        transition: border-color 0.3s ease;
+        outline: none;
+    }
+
+    .field-input::placeholder {
+        color: rgba(255, 255, 255, 0.25);
+    }
+
+    .field-input:focus {
+        border-color: var(--color-primary);
+    }
+
+    .field-input:focus::placeholder {
+        opacity: 0;
+    }
+
+    .field-select {
+        appearance: none;
+        cursor: pointer;
+    }
+
+    .field-select option {
+        background: var(--color-bg-dark);
+        color: var(--color-text-main);
+    }
+
+    .field-select-wrap {
+        position: relative;
+    }
+
+    .select-icon {
+        position: absolute;
+        right: 0;
+        bottom: 12px;
+        color: rgba(236, 156, 19, 0.6);
+        font-size: 20px;
+        pointer-events: none;
+    }
+
+    .field-textarea {
+        resize: none;
+        line-height: 1.6;
+    }
+
+    /* Submit */
+    .form-submit {
+        padding-top: 8px;
+    }
+
+    .btn-submit {
+        width: 100%;
+        background: var(--color-primary);
+        color: var(--color-bg-dark);
+        font-family: "Manrope", sans-serif;
+        font-size: 11px;
+        font-weight: 900;
+        letter-spacing: 0.3em;
+        text-transform: uppercase;
+        padding: 20px 32px;
+        border-radius: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        transition:
+            background 0.2s ease,
+            transform 0.1s ease;
+        cursor: pointer;
+    }
+
+    .btn-submit:hover {
+        background: var(--color-text-main);
+        transform: translateY(-1px);
+    }
+
+    .btn-submit:active {
+        transform: translateY(0);
+    }
+
+    .btn-submit .material-symbols-outlined {
+        font-size: 20px;
+    }
+
+    .form-success {
+        display: none;
+        text-align: center;
+        color: var(--color-primary);
+        font-size: var(--text-sm);
+        font-weight: 500;
+        letter-spacing: 0.05em;
+        padding: 12px 0;
+    }
+
+    .form-success.visible {
+        display: block;
+    }
+
+    /* Press Section */
+    .press-section {
+        margin-top: 64px;
+        padding-top: 40px;
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .press-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    @media (min-width: 600px) {
+        .press-grid {
+            grid-template-columns: 1fr 1fr;
+            align-items: end;
+        }
+    }
+
+    .press-label {
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--color-primary);
+        margin-bottom: 10px;
+    }
+
+    .press-desc {
+        color: rgba(255, 255, 255, 0.4);
+        font-size: var(--text-sm);
+        font-weight: 300;
+        line-height: 1.7;
+    }
+
+    .email-link {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: clamp(16px, 2vw, 22px);
+        font-weight: 300;
+        color: var(--color-text-main);
+        transition: color 0.2s ease;
+        word-break: break-all;
+    }
+
+    .email-link:hover {
+        color: var(--color-primary);
+    }
+
+    .email-arrow {
+        font-size: 18px;
+        color: var(--color-primary);
+        opacity: 0;
+        transition: opacity 0.2s ease;
+    }
+
+    .email-link:hover .email-arrow {
+        opacity: 1;
+    }
+</style>
+
+<script>
+    const form = document.getElementById("contact-form") as HTMLFormElement;
+    const success = document.getElementById("form-success");
+
+    form?.addEventListener("submit", (e) => {
+        e.preventDefault();
+        if (success) success.classList.add("visible");
+        form.reset();
+        setTimeout(() => success?.classList.remove("visible"), 5000);
+    });
+</script>
