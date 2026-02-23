@@ -7,7 +7,14 @@ export const translations = {
         "nav.historia": "Historia",
         "nav.comunidad": "Comunidad",
         "nav.contacto": "Contacto",
-        "nav.cuenta": "Mi Cuenta",
+        "nav.kickstarter": "Pre-regístrate",
+
+        // Launch Banner
+        "banner.coming": "Pronto en Kickstarter",
+        "banner.sub": "Sé el primero en saberlo cuando lancemos.",
+        "banner.placeholder": "tu@email.com",
+        "banner.cta": "Únete",
+        "banner.success": "✓ ¡Anotado! Te avisamos cuando lancemos.",
 
         // Index Hero
         "index.badge": "El Nuevo Capítulo de los Destilados Chilenos",
@@ -27,6 +34,9 @@ export const translations = {
         "nosotros.title": "El Alma de los Andes",
         "nosotros.subtitle": "Senshin nace de una pasión profunda por los destilados y la convicción de que Chile tiene todo lo necesario para crear algo extraordinario.",
         "nosotros.desc": "Un viaje a través de la pureza, el grano y el corazón del espíritu chileno. Nacido del silencio de las altas cumbres.",
+        "nosotros.vendimia.label": "Capítulo II: La Vendimia",
+        "nosotros.vendimia.title": "El Origen: La Cosecha de los Andes",
+        "nosotros.vendimia.desc": "Cada racimo es seleccionado a mano cuando el sol del Elqui alcanza su cenit, asegurando la concentración perfecta de azúcares para nuestro Brandy.",
 
         // Tienda
         "tienda.badge": "Destilados de Autor",
@@ -79,15 +89,35 @@ export const translations = {
         // Footer
         "footer.rights": "Todos los derechos reservados.",
         "footer.tagline": "El Nuevo Capítulo de los Destilados en Chile",
+
+        // Comunidad "Join the Movement"
+        "comunidad.join.title": "Sé parte del Legado",
+        "comunidad.join.desc": "Nuestra primera edición es limitada. Únete a la lista de espera para asegurar tu lugar entre los fundadores.",
+        "comunidad.join.slots": "Cupos Fundadores: 24/100 Disponibles",
+        "comunidad.join.cta": "Pre-regístrate ahora",
+        "nosotros.video.title": "El Arte de la Destilación",
+        "nosotros.video.desc": "Una mirada profunda al corazón de Senshin.",
     },
     en: {
         // Navigation
         "nav.whisky": "Whisky",
         "nav.brandy": "Brandy",
+        "nosotros.vendimia.label": "Chapter II: The Harvest",
+        "nosotros.vendimia.title": "The Origin: Harvest of the Andes",
+        "nosotros.vendimia.desc": "Each cluster is hand-selected when the Elqui sun reaches its zenith, ensuring the perfect sugar concentration for our Brandy.",
+        "nosotros.video.title": "The Art of Distillation",
+        "nosotros.video.desc": "A deep look into the heart of Senshin.",
         "nav.historia": "Our Story",
         "nav.comunidad": "Community",
         "nav.contacto": "Contact",
-        "nav.cuenta": "My Account",
+        "nav.kickstarter": "Pre-register",
+
+        // Launch Banner
+        "banner.coming": "Coming to Kickstarter",
+        "banner.sub": "Be the first to know when we launch.",
+        "banner.placeholder": "your@email.com",
+        "banner.cta": "Join",
+        "banner.success": "✓ Got it! We'll notify you at launch.",
 
         // Index Hero
         "index.badge": "The New Chapter of Chilean Spirits",
@@ -159,5 +189,11 @@ export const translations = {
         // Footer
         "footer.rights": "All rights reserved.",
         "footer.tagline": "The New Chapter of Chilean Spirits",
+
+        // Comunidad "Join the Movement"
+        "comunidad.join.title": "Become Part of the Legacy",
+        "comunidad.join.desc": "Our first edition is limited. Join the waitlist to secure your spot among the founders.",
+        "comunidad.join.slots": "Founder Slots: 24/100 Available",
+        "comunidad.join.cta": "Pre-register now",
     },
 };

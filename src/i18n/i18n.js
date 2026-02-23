@@ -12,8 +12,8 @@
     function setLang(lang) {
         localStorage.setItem(STORAGE_KEY, lang);
         document.documentElement.lang = lang;
-        applyTranslations(lang);
-        updateSwitcher(lang);
+        // Reload page to ensure all components and meta tags refresh with the new language
+        window.location.reload();
     }
 
     function applyTranslations(lang) {
@@ -63,7 +63,9 @@
         document.querySelectorAll("[data-lang-btn]").forEach((btn) => {
             btn.addEventListener("click", () => {
                 const newLang = btn.getAttribute("data-lang-btn");
-                setLang(newLang);
+                if (newLang !== getLang()) {
+                    setLang(newLang);
+                }
             });
         });
     });

@@ -3,16 +3,82 @@ import "../styles/global.css";
 import AgeGate from "../components/AgeGate.astro";
 import Navigation from "../components/Navigation.astro";
 import Footer from "../components/Footer.astro";
+import LaunchBanner from "../components/LaunchBanner.astro";
 import { translations } from "../i18n/translations.js";
+
+interface Props {
+	title?: string;
+	description?: string;
+	ogImage?: string;
+	ogType?: string;
+	canonical?: string;
+}
+
+const {
+	title = "Senshin | El Nuevo Capítulo de los Destilados en Chile",
+	description = "Senshin es la primera destilería premium de Chile, creadora de Whisky y Brandy de autor destilados en los Andes. Únete al movimiento.",
+	ogImage = "/og-default.jpg",
+	ogType = "website",
+	canonical = Astro.url.href,
+} = Astro.props;
+
+const siteName = "Senshin Chile";
 ---
 
 <!doctype html>
 <html lang="es">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
+
+		<!-- Canonical -->
+		<link rel="canonical" href={canonical} />
+
+		<!-- Primary SEO -->
+		<title>{title}</title>
+		<meta name="description" content={description} />
+		<meta name="robots" content="index, follow" />
+		<meta name="theme-color" content="#ec9c13" />
+
+		<!-- Open Graph -->
+		<meta property="og:type" content={ogType} />
+		<meta property="og:site_name" content={siteName} />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content={ogImage} />
+		<meta property="og:url" content={canonical} />
+		<meta property="og:locale" content="es_CL" />
+		<meta property="og:locale:alternate" content="en_US" />
+
+		<!-- Twitter/X Card -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		<meta name="twitter:image" content={ogImage} />
+
+		<!-- Schema.org JSON-LD: Organization -->
+		<script type="application/ld+json">
+			{
+				"@context": "https://schema.org",
+				"@type": "Organization",
+				"name": "Senshin Chile",
+				"url": "https://senshin.cl",
+				"logo": "https://senshin.cl/favicon.svg",
+				"description": "Destilería premium chilena especializada en Whisky y Brandy artesanales de los Andes.",
+				"foundingDate": "2023",
+				"areaServed": "CL",
+				"contactPoint": {
+					"@type": "ContactPoint",
+					"email": "hola@senshin.cl",
+					"contactType": "customer service"
+				},
+				"sameAs": ["https://instagram.com/senshinchile"]
+			}
+		</script>
+
+		<!-- Fonts -->
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
@@ -24,13 +90,11 @@ import { translations } from "../i18n/translations.js";
 			rel="stylesheet"
 		/>
 		<meta name="generator" content={Astro.generator} />
-		<title>Senshin | El Nuevo Capítulo de los Destilados</title>
 
 		<!-- Inject translations as global variable -->
 		<script is:inline define:vars={{ translations }}>
 			window.__SENSHIN_I18N__ = translations;
-
-			// Apply lang immediately (before DOMContentLoaded) to avoid flash
+			// Apply lang immediately to avoid flash
 			const savedLang = localStorage.getItem("senshin_lang") || "es";
 			document.documentElement.lang = savedLang;
 		</script>
@@ -40,6 +104,7 @@ import { translations } from "../i18n/translations.js";
 		<Navigation />
 		<slot />
 		<Footer />
+		<LaunchBanner />
 
 		<!-- i18n engine -->
 		<script>

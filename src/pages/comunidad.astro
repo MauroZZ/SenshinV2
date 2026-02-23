@@ -72,7 +72,10 @@ const names = [
 ];
 ---
 
-<Layout>
+<Layout
+    title="Comunidad | Senshin — Los Fundadores del Movimiento"
+    description="Únete al movimiento Senshin. Conoce a los fundadores que hacen posible la primera destilería premium de Chile y sé parte de la historia desde el principio."
+>
     <!-- Subtle Grain and Texture Layers -->
     <div class="grain-overlay"></div>
     <div class="hero-radial-bg"></div>
@@ -187,18 +190,36 @@ const names = [
                 {names.map((name) => <span class="extended-name">{name}</span>)}
             </div>
 
-            <!-- Bottom Fade and CTA -->
-            <div class="bottom-cta-section">
-                <div class="cta-divider"></div>
-                <p class="cta-text">¿Quieres ser parte de nuestra historia?</p>
-                <a href="#" class="cta-btn">
-                    <span class="btn-text" data-i18n="comunidad.join"
-                        >Únete a la Comunidad</span
-                    >
-                    <span class="material-symbols-outlined btn-icon"
-                        >arrow_forward</span
-                    >
-                </a>
+            <!-- Join the Movement Section -->
+            <div class="join-movement-card">
+                <div class="card-glow"></div>
+                <div class="card-content">
+                    <div class="card-header">
+                        <span
+                            class="card-badge"
+                            data-i18n="comunidad.join.slots"
+                            >Cupos Fundadores: 24/100 Disponibles</span
+                        >
+                        <h2 class="card-title" data-i18n="comunidad.join.title">
+                            Sé parte del Legado
+                        </h2>
+                    </div>
+                    <p class="card-desc" data-i18n="comunidad.join.desc">
+                        Nuestra primera edición es limitada. Únete a la lista de
+                        espera para asegurar tu lugar entre los fundadores.
+                    </p>
+
+                    <div class="card-actions">
+                        <button class="join-cta-btn" id="comunidad-open-banner">
+                            <span data-i18n="comunidad.join.cta"
+                                >Pre-regístrate ahora</span
+                            >
+                            <span class="material-symbols-outlined"
+                                >rocket_launch</span
+                            >
+                        </button>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
@@ -463,65 +484,130 @@ const names = [
         opacity: 1;
     }
 
-    .bottom-cta-section {
-        margin-top: 160px;
+    /* ── JOIN THE MOVEMENT CARD ── */
+    .join-movement-card {
+        margin-top: 120px;
+        position: relative;
+        padding: 80px 40px;
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid rgba(236, 156, 19, 0.1);
+        border-radius: var(--radius-md);
+        overflow: hidden;
+        text-align: center;
         display: flex;
         flex-direction: column;
         align-items: center;
     }
 
-    .cta-divider {
-        height: 128px;
-        width: 1px;
+    .card-glow {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%;
+        height: 1px;
         background: linear-gradient(
-            to bottom,
-            rgba(236, 156, 19, 0.3),
+            90deg,
+            transparent,
+            rgba(236, 156, 19, 0.5),
             transparent
         );
-        margin-bottom: 64px;
     }
 
-    .cta-text {
-        font-size: var(--text-lg);
-        font-weight: 300;
-        color: #94a3b8;
-        margin-bottom: 32px;
+    .card-content {
+        position: relative;
+        z-index: 1;
+        max-width: 600px;
+    }
+
+    .card-header {
+        margin-bottom: 24px;
+    }
+
+    .card-badge {
+        display: block;
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: 0.25em;
+        text-transform: uppercase;
+        color: var(--color-primary);
+        margin-bottom: 16px;
+    }
+
+    .card-title {
+        font-size: clamp(32px, 5vw, 48px);
+        font-weight: 200;
+        color: var(--color-text-main);
+        line-height: 1.1;
+    }
+
+    .card-desc {
+        font-size: var(--text-base);
+        color: var(--color-text-dim);
+        line-height: 1.7;
+        margin-bottom: 40px;
         font-style: italic;
     }
 
-    .cta-btn {
+    .card-actions {
+        display: flex;
+        justify-content: center;
+    }
+
+    .join-cta-btn {
         display: flex;
         align-items: center;
         gap: 16px;
-        background-color: var(--color-text-main);
-        color: var(--color-text-dark);
-        padding: 20px 40px;
-        border-radius: var(--radius-sm);
-        transition: var(--transition-smooth);
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-        text-decoration: none;
-    }
-
-    .cta-btn:hover {
         background-color: var(--color-primary);
-        color: var(--color-text-main);
-    }
-
-    .btn-text {
-        font-size: var(--text-xs);
+        color: var(--color-bg-dark);
+        padding: 20px 48px;
+        border-radius: 0;
+        font-size: 11px;
         font-weight: 900;
         text-transform: uppercase;
-        letter-spacing: 0.3em;
+        letter-spacing: 0.25em;
+        transition: var(--transition-smooth);
+        cursor: pointer;
+        border: none;
     }
 
-    .btn-icon {
+    .join-cta-btn:hover {
+        background-color: var(--color-text-main);
+        transform: translateY(-2px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .join-cta-btn .material-symbols-outlined {
         font-size: 20px;
-        transition: transform 0.5s ease;
+        transition: transform 0.4s ease;
     }
 
-    .cta-btn:hover .btn-icon {
-        transform: translateX(4px);
+    .join-cta-btn:hover .material-symbols-outlined {
+        transform: translate(2px, -2px) rotate(10deg);
     }
 </style>
 
-<style></style>
+<script>
+    // Open LaunchBanner from community CTA
+    const openBannerBtn = document.getElementById("comunidad-open-banner");
+    openBannerBtn?.addEventListener("click", () => {
+        const banner = document.getElementById("launch-banner");
+        if (banner) {
+            banner.classList.remove("dismissed");
+            banner.classList.add("visible");
+            setTimeout(() => {
+                const input = document.getElementById("banner-email");
+                input?.focus();
+            }, 400);
+        }
+    });
+
+    // Simple tab switching logic for UI demonstration
+    const tabs = document.querySelectorAll(".tab-btn");
+    tabs.forEach((tab) => {
+        tab.addEventListener("click", () => {
+            tabs.forEach((t) => t.classList.remove("active"));
+            tab.classList.add("active");
+        });
+    });
+</script>

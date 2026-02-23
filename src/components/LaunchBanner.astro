@@ -1,0 +1,346 @@
+---
+
+---
+
+<div
+    class="launch-banner"
+    id="launch-banner"
+    role="banner"
+    aria-label="Anuncio de pre-lanzamiento"
+>
+    <div class="banner-inner">
+        <!-- Left: rocket + text -->
+        <div class="banner-text">
+            <span class="banner-icon">🚀</span>
+            <span class="banner-copy">
+                <strong data-i18n="banner.coming">Pronto en Kickstarter</strong>
+                <span class="banner-sep">—</span>
+                <span data-i18n="banner.sub"
+                    >Sé el primero en saberlo cuando lancemos.</span
+                >
+            </span>
+        </div>
+
+        <!-- Center: email form -->
+        <form
+            class="banner-form"
+            id="banner-form"
+            autocomplete="off"
+            action="https://formspree.io/f/xwvnwvjy"
+            method="POST"
+        >
+            <input
+                type="email"
+                id="banner-email"
+                name="email"
+                class="banner-input"
+                placeholder="tu@email.com"
+                data-i18n-placeholder="banner.placeholder"
+                required
+                aria-label="Correo electrónico"
+            />
+            <button type="submit" class="banner-btn" data-i18n="banner.cta">
+                Únete
+            </button>
+        </form>
+
+        <!-- Right: success message (hidden until submit) -->
+        <p
+            class="banner-success"
+            id="banner-success"
+            aria-live="polite"
+            data-i18n="banner.success"
+        >
+            ✓ ¡Anotado! Te avisamos cuando lancemos.
+        </p>
+
+        <!-- Dismiss -->
+        <button
+            class="banner-dismiss"
+            id="banner-dismiss"
+            aria-label="Cerrar banner"
+        >
+            <span class="material-symbols-outlined">close</span>
+        </button>
+    </div>
+</div>
+
+<style>
+    .launch-banner {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 90;
+        background: linear-gradient(
+            90deg,
+            rgba(18, 14, 9, 0.97) 0%,
+            rgba(28, 20, 10, 0.97) 50%,
+            rgba(18, 14, 9, 0.97) 100%
+        );
+        border-top: 1px solid rgba(236, 156, 19, 0.3);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        padding: 14px 24px;
+        transform: translateY(100%);
+        transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .launch-banner.visible {
+        transform: translateY(0);
+    }
+
+    .launch-banner.dismissed {
+        transform: translateY(100%);
+        pointer-events: none;
+    }
+
+    /* Accent glow line at top */
+    .launch-banner::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60%;
+        height: 1px;
+        background: linear-gradient(
+            90deg,
+            transparent,
+            var(--color-primary),
+            transparent
+        );
+    }
+
+    .banner-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    /* Text block */
+    .banner-text {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-shrink: 0;
+    }
+
+    .banner-icon {
+        font-size: 18px;
+        line-height: 1;
+    }
+
+    .banner-copy {
+        font-size: 12px;
+        color: rgba(255, 255, 255, 0.75);
+        font-weight: 400;
+        white-space: nowrap;
+    }
+
+    .banner-copy strong {
+        color: var(--color-primary);
+        font-weight: 800;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        font-size: 10px;
+    }
+
+    .banner-sep {
+        color: rgba(255, 255, 255, 0.25);
+        margin: 0 4px;
+    }
+
+    /* Form */
+    .banner-form {
+        display: flex;
+        align-items: center;
+        gap: 0;
+        flex: 1;
+        max-width: 380px;
+        min-width: 220px;
+    }
+
+    .banner-input {
+        flex: 1;
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(236, 156, 19, 0.3);
+        border-right: none;
+        border-radius: 2px 0 0 2px;
+        color: var(--color-text-main);
+        font-family: "Manrope", sans-serif;
+        font-size: 12px;
+        font-weight: 400;
+        padding: 10px 14px;
+        outline: none;
+        transition:
+            border-color 0.2s ease,
+            background 0.2s ease;
+        min-width: 0;
+    }
+
+    .banner-input::placeholder {
+        color: rgba(255, 255, 255, 0.3);
+    }
+
+    .banner-input:focus {
+        border-color: var(--color-primary);
+        background: rgba(236, 156, 19, 0.07);
+    }
+
+    .banner-btn {
+        background: var(--color-primary);
+        color: var(--color-bg-dark);
+        font-family: "Manrope", sans-serif;
+        font-size: 10px;
+        font-weight: 900;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        padding: 11px 20px;
+        border-radius: 0 2px 2px 0;
+        white-space: nowrap;
+        transition: background 0.2s ease;
+        cursor: pointer;
+        flex-shrink: 0;
+    }
+
+    .banner-btn:hover {
+        background: var(--color-text-main);
+        color: var(--color-bg-dark);
+    }
+
+    /* Success */
+    .banner-success {
+        display: none;
+        color: var(--color-primary);
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.05em;
+        animation: fadeIn 0.3s ease;
+    }
+
+    .banner-success.visible {
+        display: block;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(4px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Dismiss */
+    .banner-dismiss {
+        color: rgba(255, 255, 255, 0.3);
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        padding: 4px;
+        transition: color 0.2s ease;
+        flex-shrink: 0;
+        margin-left: 4px;
+    }
+
+    .banner-dismiss:hover {
+        color: rgba(255, 255, 255, 0.7);
+    }
+
+    .banner-dismiss .material-symbols-outlined {
+        font-size: 18px;
+    }
+
+    /* Mobile adjustments */
+    @media (max-width: 600px) {
+        .banner-copy > .banner-sep,
+        .banner-copy > span:last-child {
+            display: none;
+        }
+
+        .banner-form {
+            max-width: 100%;
+        }
+    }
+</style>
+
+<script>
+    (function () {
+        const banner = document.getElementById("launch-banner");
+        const form = document.getElementById("banner-form") as HTMLFormElement;
+        const input = document.getElementById(
+            "banner-email",
+        ) as HTMLInputElement;
+        const success = document.getElementById("banner-success");
+        const dismiss = document.getElementById("banner-dismiss");
+        const submitBtn = form?.querySelector(
+            ".banner-btn",
+        ) as HTMLButtonElement;
+
+        // Don't show if already dismissed in this session
+        if (sessionStorage.getItem("senshin_banner_dismissed")) return;
+
+        // Slide up after short delay
+        setTimeout(() => {
+            banner?.classList.add("visible");
+        }, 2500);
+
+        form?.addEventListener("submit", async (e) => {
+            e.preventDefault();
+            if (!input?.value) return;
+
+            // Loading state
+            if (submitBtn) {
+                submitBtn.disabled = true;
+                submitBtn.textContent = "...";
+            }
+
+            const data = new FormData(form);
+            data.append("fuente", "Banner pre-lanzamiento Senshin");
+
+            try {
+                const response = await fetch(
+                    "https://formspree.io/f/xwvnwvjy",
+                    {
+                        method: "POST",
+                        body: data,
+                        headers: { Accept: "application/json" },
+                    },
+                );
+
+                if (response.ok) {
+                    form.style.display = "none";
+                    success?.classList.add("visible");
+                    // Auto-dismiss after 4 seconds
+                    setTimeout(() => {
+                        banner?.classList.add("dismissed");
+                        sessionStorage.setItem("senshin_banner_dismissed", "1");
+                    }, 4000);
+                } else {
+                    // Reset button on error
+                    if (submitBtn) {
+                        submitBtn.disabled = false;
+                        submitBtn.textContent = "Únete";
+                    }
+                }
+            } catch {
+                if (submitBtn) {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = "Únete";
+                }
+            }
+        });
+
+        dismiss?.addEventListener("click", () => {
+            banner?.classList.add("dismissed");
+            sessionStorage.setItem("senshin_banner_dismissed", "1");
+        });
+    })();
+</script>

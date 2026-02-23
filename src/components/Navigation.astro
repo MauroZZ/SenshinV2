@@ -2,18 +2,19 @@
 
 ---
 
-<header class="nav-header">
+<header class="nav-header" id="nav-header">
   <div class="nav-logo-group">
     <div class="logo-svg">
-      <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-        <path
-          d="M44 4H30.6666V17.3334H17.3334V30.6666H4V44H44V4Z"
-          fill="currentColor"></path>
-      </svg>
+      <img
+        src="/assets/img/senshin-logo-sin-fondo.png"
+        alt="Senshin Logo"
+        class="nav-logo-img"
+      />
     </div>
     <a href="/" class="logo-text">Senshin</a>
   </div>
 
+  <!-- Desktop nav -->
   <nav class="nav-menu">
     <a class="nav-link" href="/tienda" data-i18n="nav.whisky">Whisky</a>
     <a class="nav-link" href="/tienda" data-i18n="nav.brandy">Brandy</a>
@@ -24,35 +25,98 @@
   </nav>
 
   <div class="nav-actions">
-    <!-- Language Switcher -->
+    <!-- Language Switcher (desktop) -->
     <div class="lang-switcher">
       <button class="lang-btn lang-active" data-lang-btn="es">ES</button>
       <span class="lang-divider">|</span>
       <button class="lang-btn" data-lang-btn="en">EN</button>
     </div>
-    <button class="account-btn" data-i18n="nav.cuenta">Mi Cuenta</button>
-    <button class="menu-toggle">
-      <span class="material-symbols-outlined menu-icon">menu</span>
+    <button
+      class="kickstarter-btn"
+      id="open-banner-btn"
+      data-i18n="nav.kickstarter"
+    >
+      <span class="ks-icon">🚀</span>
+      <span>Pre-regístrate</span>
+    </button>
+    <!-- Hamburger -->
+    <button
+      class="menu-toggle"
+      id="menu-toggle"
+      aria-label="Abrir menú"
+      aria-expanded="false"
+    >
+      <span class="material-symbols-outlined menu-icon" id="menu-icon"
+        >menu</span
+      >
     </button>
   </div>
 </header>
 
+<!-- Mobile overlay -->
+<div class="mobile-overlay" id="mobile-overlay"></div>
+
+<!-- Mobile Drawer -->
+<aside class="mobile-drawer" id="mobile-drawer" aria-hidden="true">
+  <!-- Drawer header -->
+  <div class="drawer-header">
+    <div class="drawer-logo-group">
+      <div class="logo-svg">
+        <img
+          src="/assets/img/logo Principal.png"
+          alt="Senshin Logo"
+          class="nav-logo-img"
+        />
+      </div>
+      <span class="logo-text">Senshin</span>
+    </div>
+    <button class="drawer-close" id="drawer-close" aria-label="Cerrar menú">
+      <span class="material-symbols-outlined">close</span>
+    </button>
+  </div>
+
+  <!-- Drawer links -->
+  <nav class="drawer-nav">
+    <a class="drawer-link" href="/tienda" data-i18n="nav.whisky">Whisky</a>
+    <a class="drawer-link" href="/tienda" data-i18n="nav.brandy">Brandy</a>
+    <a class="drawer-link" href="/nosotros" data-i18n="nav.historia">Historia</a
+    >
+    <a class="drawer-link" href="/comunidad" data-i18n="nav.comunidad"
+      >Comunidad</a
+    >
+    <a class="drawer-link" href="/contacto" data-i18n="nav.contacto">Contacto</a
+    >
+  </nav>
+
+  <!-- Drawer footer -->
+  <div class="drawer-footer">
+    <!-- Lang switcher in drawer -->
+    <div class="drawer-lang">
+      <button class="lang-btn lang-active" data-lang-btn="es">ES</button>
+      <span class="lang-divider">|</span>
+      <button class="lang-btn" data-lang-btn="en">EN</button>
+    </div>
+    <p class="drawer-tagline">Destilados de Chile · Senshin</p>
+  </div>
+</aside>
+
 <style>
+  /* ── HEADER ── */
   .nav-header {
     position: fixed;
     top: 0;
     z-index: 100;
     width: 100%;
     height: var(--nav-height-mobile);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    background: rgba(0, 0, 0, 0.2);
+    background: rgba(10, 9, 8, 0.75);
     padding: 0 var(--space-md);
     display: flex;
     align-items: center;
     justify-content: space-between;
-    transition: var(--transition-fast);
+    transition: background 0.3s ease;
   }
 
   @media (min-width: 1024px) {
@@ -62,17 +126,20 @@
     }
   }
 
+  /* ── LOGO ── */
   .nav-logo-group {
     display: flex;
     align-items: center;
     gap: var(--space-sm);
     cursor: pointer;
+    z-index: 110;
   }
 
   .logo-svg {
     color: var(--color-primary);
-    width: 32px;
-    height: 32px;
+    width: 28px;
+    height: 28px;
+    flex-shrink: 0;
   }
 
   @media (min-width: 1024px) {
@@ -96,6 +163,7 @@
     }
   }
 
+  /* ── DESKTOP NAV ── */
   .nav-menu {
     display: none;
     align-items: center;
@@ -131,58 +199,90 @@
     opacity: 1;
   }
 
+  /* ── ACTIONS ── */
   .nav-actions {
     display: flex;
     align-items: center;
     gap: var(--space-md);
   }
 
-  .account-btn {
+  /* ── KICKSTARTER CTA ── */
+  .kickstarter-btn {
     display: none;
-    padding: 10px 24px;
-    background-color: var(--color-primary);
-    color: var(--color-bg-dark);
+    align-items: center;
+    gap: 6px;
+    padding: 10px 20px;
+    background: transparent;
+    color: var(--color-primary);
+    border: 1px solid rgba(236, 156, 19, 0.5);
     font-size: 10px;
     font-weight: 900;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.12em;
     border-radius: var(--radius-sm);
-    transition: var(--transition-fast);
-    box-shadow: 0 0 15px rgba(236, 156, 19, 0.3);
+    cursor: pointer;
+    transition:
+      background 0.2s ease,
+      border-color 0.2s ease,
+      box-shadow 0.2s ease;
+    white-space: nowrap;
+    animation: pulse-border 3s ease-in-out infinite;
   }
 
-  @media (min-width: 1024px) {
-    .account-btn {
-      display: flex;
-      font-size: var(--text-xs);
-      padding: 12px 32px;
-      letter-spacing: 0.15em;
+  @keyframes pulse-border {
+    0%,
+    100% {
+      box-shadow: 0 0 0 0 rgba(236, 156, 19, 0);
+    }
+    50% {
+      box-shadow: 0 0 0 4px rgba(236, 156, 19, 0.12);
     }
   }
 
-  .account-btn:hover {
-    background-color: var(--color-text-main);
-    color: var(--color-text-dark);
-    box-shadow: 0 0 25px rgba(255, 255, 255, 0.2);
+  @media (min-width: 640px) {
+    .kickstarter-btn {
+      display: flex;
+    }
   }
 
+  .kickstarter-btn:hover {
+    background: rgba(236, 156, 19, 0.1);
+    border-color: var(--color-primary);
+    box-shadow: 0 0 20px rgba(236, 156, 19, 0.2);
+  }
+
+  .ks-icon {
+    font-style: normal;
+    font-size: 14px;
+    line-height: 1;
+  }
+
+  /* ── HAMBURGER ── */
   .menu-toggle {
     color: var(--color-text-main);
     display: flex;
     align-items: center;
+    cursor: pointer;
+    z-index: 110;
+    padding: 4px;
+    transition: color 0.2s ease;
+  }
+
+  .menu-toggle:hover {
+    color: var(--color-primary);
+  }
+
+  @media (min-width: 1024px) {
+    .menu-toggle {
+      display: none;
+    }
   }
 
   .menu-icon {
     font-size: 24px;
   }
 
-  @media (min-width: 1024px) {
-    .menu-icon {
-      font-size: 28px;
-    }
-  }
-
-  /* Language Switcher */
+  /* ── LANG SWITCHER ── */
   .lang-switcher {
     display: none;
     align-items: center;
@@ -218,4 +318,202 @@
     font-size: 10px;
     font-weight: 300;
   }
+
+  /* ── MOBILE OVERLAY ── */
+  .mobile-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(8px);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .mobile-overlay.open {
+    display: block;
+    opacity: 1;
+  }
+
+  /* ── MOBILE DRAWER ── */
+  .mobile-drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 1001;
+    width: min(320px, 85vw);
+    height: 100dvh;
+    background: #0a0908;
+    border-left: 1px solid rgba(236, 156, 19, 0.2);
+    display: flex;
+    flex-direction: column;
+    transform: translateX(100%);
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    overflow: hidden;
+    box-shadow: -20px 0 40px rgba(0, 0, 0, 0.4);
+  }
+
+  .mobile-drawer.open {
+    transform: translateX(0);
+  }
+
+  /* Drawer: accent line at top */
+  .mobile-drawer::before {
+    content: "";
+    display: block;
+    height: 2px;
+    background: linear-gradient(90deg, var(--color-primary), transparent);
+    flex-shrink: 0;
+  }
+
+  /* Drawer header */
+  .drawer-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 24px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    flex-shrink: 0;
+  }
+
+  .drawer-logo-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .drawer-close {
+    color: rgba(255, 255, 255, 0.5);
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 4px;
+    transition: color 0.2s ease;
+  }
+
+  .drawer-close:hover {
+    color: var(--color-primary);
+  }
+
+  .drawer-close .material-symbols-outlined {
+    font-size: 22px;
+  }
+
+  /* Drawer nav links */
+  .drawer-nav {
+    display: flex;
+    flex-direction: column;
+    padding: 32px 24px;
+    gap: 0;
+    flex: 1;
+  }
+
+  .drawer-link {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    padding: 18px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    transition:
+      color 0.2s ease,
+      padding-left 0.2s ease;
+    display: flex;
+    align-items: center;
+  }
+
+  .drawer-link:hover {
+    color: var(--color-primary);
+    padding-left: 8px;
+  }
+
+  /* Drawer footer */
+  .drawer-footer {
+    padding: 24px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .drawer-lang {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .drawer-tagline {
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: 0.15em;
+    color: rgba(255, 255, 255, 0.2);
+    text-transform: uppercase;
+  }
 </style>
+
+<script>
+  const toggle = document.getElementById("menu-toggle");
+  const drawer = document.getElementById("mobile-drawer");
+  const overlay = document.getElementById("mobile-overlay");
+  const closeBtn = document.getElementById("drawer-close");
+  const menuIcon = document.getElementById("menu-icon");
+
+  function openMenu() {
+    drawer?.classList.add("open");
+    overlay?.classList.add("open");
+    document.body.style.overflow = "hidden";
+    toggle?.setAttribute("aria-expanded", "true");
+    drawer?.setAttribute("aria-hidden", "false");
+    if (menuIcon) menuIcon.textContent = "close";
+  }
+
+  function closeMenu() {
+    drawer?.classList.remove("open");
+    overlay?.classList.remove("open");
+    document.body.style.overflow = "";
+    toggle?.setAttribute("aria-expanded", "false");
+    drawer?.setAttribute("aria-hidden", "true");
+    if (menuIcon) menuIcon.textContent = "menu";
+  }
+
+  toggle?.addEventListener("click", () => {
+    const isOpen = drawer?.classList.contains("open");
+    if (isOpen) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
+  });
+
+  closeBtn?.addEventListener("click", closeMenu);
+  overlay?.addEventListener("click", closeMenu);
+
+  // Close on drawer link click
+  document.querySelectorAll(".drawer-link").forEach((link) => {
+    link.addEventListener("click", closeMenu);
+  });
+
+  // Close on Escape key
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeMenu();
+  });
+
+  // Open LaunchBanner from nav CTA
+  const openBannerBtn = document.getElementById("open-banner-btn");
+  openBannerBtn?.addEventListener("click", () => {
+    const banner = document.getElementById("launch-banner");
+    if (banner) {
+      banner.classList.remove("dismissed");
+      banner.classList.add("visible");
+      // Focus the email input
+      setTimeout(() => {
+        const input = document.getElementById("banner-email");
+        input?.focus();
+      }, 400);
+    }
+    closeMenu(); // close mobile drawer if open
+  });
+</script>
