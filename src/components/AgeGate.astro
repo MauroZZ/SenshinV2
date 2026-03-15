@@ -6,6 +6,7 @@
   <!-- Cinematic Background -->
   <div class="age-gate-bg">
     <div class="bg-overlay"></div>
+    <div class="grain-overlay-age"></div>
     <img
       src="https://lh3.googleusercontent.com/aida-public/AB6AXuCibZIsVr2SeReUyPfz9IX6uFscErcPxWISr1I4b98o1VwAHA00_BgVw4N8yOnMh_d2Yr9BrG-8Jj3tZct2W7VcXjDxAhjaNRBEEqZBXIXXFItnBcx1ct-ry5X23cIgOEy6_BRFjfmZd-OGqkI1f9JCW8N0AEnQe6fv8-KRhkatTRAmrxpDVYSJTZomgjJcWrLrkiNWbZRJR53-bbhZ4cMdVdXRqjoSFTZY494CstpaZLeak2SxNo2CE6VtmxPe6rHCpIFovnlqyRzF"
       alt="Senshin Bottle"
@@ -78,8 +79,17 @@
   .bg-overlay {
     position: absolute;
     inset: 0;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(10, 9, 8, 0.85); /* Un negro más rico */
     z-index: 10;
+  }
+
+  .grain-overlay-age {
+    position: absolute;
+    inset: 0;
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuCuPKkIXgGq0ch2V12KBZ3rUriKHEL0KsUPzquC5pFbhMybXIdiz-B7kB0wnvq8F0Z0hAlJfWKKVqvzva4oFkKvJLAzjRmDsT5rcn6CiISf-JdigJmnkH1arOUaQ5KaOGnoeBY7V44MHkvbr2orS12gAkzQMLNr8PGRm5eddW-ycLYjGS8JsIH4lOITh5AHo71ag7sRddbE3eefWD2jqZ3-4z58JG8hzaDzp8VTgIugGsZ-VpT8hvB-ZbDoFo43xYzQR7kygbnz9Pz);
+    opacity: 0.04;
+    pointer-events: none;
+    z-index: 15;
   }
 
   .bg-image {
@@ -161,7 +171,7 @@
   .card-title {
     color: var(--color-text-main);
     font-size: var(--text-3xl);
-    font-weight: 900;
+    font-weight: 700;
     margin-bottom: 48px;
     letter-spacing: -0.02em;
     text-transform: uppercase;
