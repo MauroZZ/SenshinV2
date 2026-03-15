@@ -2,8 +2,8 @@
 export const translations = {
     es: {
         // Navigation
-        "nav.whisky": "Whisky",
-        "nav.brandy": "Brandy",
+        "nav.inicio": "Inicio",
+        "nav.destilados": "Destilados",
         "nav.historia": "Historia",
         "nav.comunidad": "Comunidad",
         "nav.contacto": "Contacto",
@@ -18,9 +18,9 @@ export const translations = {
 
         // Index Hero
         "index.badge": "El Nuevo Capítulo de los Destilados Chilenos",
-        "index.title": "Senshin: El Nuevo Capítulo de los",
-        "index.title.highlight": "Destilados",
-        "index.title.end": "en Chile",
+        "index.title": "El Alma de los Andes",
+        "index.title.highlight": "Destilada",
+        "index.title.end": " en Chile",
         "index.subtitle": "Chile es tierra de grandes vinos; ahora es tiempo de escribir su historia en el",
         "index.subtitle.whisky": "Whisky",
         "index.subtitle.and": "y el",
@@ -28,6 +28,27 @@ export const translations = {
         "index.cta.primary": "Entrar a la Experiencia",
         "index.cta.secondary": "Nuestra Historia",
         "index.scroll": "Desplaza para Explorar",
+
+        // Home: Sección Esencia
+        "home.esencia.badge": "El Alma de los Andes",
+        "home.esencia.title": "Donde el Cielo toca la Tierra",
+        "home.esencia.desc": "En el corazón del Valle del Elqui, bajo los cielos más limpios del mundo, destilamos la pureza de las altas cumbres para crear un espíritu único.",
+        "home.esencia.cta": "Descubrir Origen",
+
+        // Home: Sección Cava
+        "home.cava.badge": "Nuestras Creaciones",
+        "home.cava.title": "El Arte de la Destilación",
+        "home.cava.whisky.title": "Senshin Single Malt",
+        "home.cava.whisky.desc": "12 Años · Roble Francés. El alma del Whisky chileno.",
+        "home.cava.brandy.title": "Senshin Premium Brandy",
+        "home.cava.brandy.desc": "Solera Especial. La elegancia de la uva Moscatel.",
+        "home.cava.cta": "Ir a la Tienda",
+
+        // Home: Sección Movimiento
+        "home.mov.badge": "Se parte del Cambio",
+        "home.mov.title": "Un Legado en Construcción",
+        "home.mov.desc": "No solo hacemos destilados; estamos redefiniendo la identidad de Chile en el mundo. Únete a los fundadores.",
+        "home.mov.cta": "Unirse al Movimiento",
 
         // Nosotros
         "nosotros.badge": "Nuestra Historia de Origen",
@@ -39,11 +60,12 @@ export const translations = {
         "nosotros.vendimia.desc": "Cada racimo es seleccionado a mano cuando el sol del Elqui alcanza su cenit, asegurando la concentración perfecta de azúcares para nuestro Brandy.",
 
         // Tienda
-        "tienda.badge": "Destilados de Autor",
-        "tienda.title": "El Espíritu del Sol Chileno",
-        "tienda.subtitle": "Cada botella cuenta una historia de terroir chileno y maestría artesanal.",
-        "tienda.desc": "Notas de madera noble y el dulzor sutil del sol chileno capturado en cada gota. Una oda a la tierra y al tiempo.",
-        "tienda.cta": "Explorar Selección",
+        "tienda.badge": "Galería Curada",
+        "tienda.title": "La Colección Senshin",
+        "tienda.subtitle": "Cada botella es una obra de arte destilada con maestría artesanal.",
+        "tienda.desc": "Una selección exclusiva que captura el alma de los Andes. Notas de madera noble y el dulzor sutil del sol chileno.",
+        "tienda.cta": "Explorar Detalles",
+        "tienda.pedido": "Realizar Pedido",
 
         // Comunidad
         "comunidad.badge": "Tributo a la Comunidad",
@@ -100,13 +122,8 @@ export const translations = {
     },
     en: {
         // Navigation
-        "nav.whisky": "Whisky",
-        "nav.brandy": "Brandy",
-        "nosotros.vendimia.label": "Chapter II: The Harvest",
-        "nosotros.vendimia.title": "The Origin: Harvest of the Andes",
-        "nosotros.vendimia.desc": "Each cluster is hand-selected when the Elqui sun reaches its zenith, ensuring the perfect sugar concentration for our Brandy.",
-        "nosotros.video.title": "The Art of Distillation",
-        "nosotros.video.desc": "A deep look into the heart of Senshin.",
+        "nav.inicio": "Home",
+        "nav.destilados": "Spirits",
         "nav.historia": "Our Story",
         "nav.comunidad": "Community",
         "nav.contacto": "Contact",
@@ -121,9 +138,9 @@ export const translations = {
 
         // Index Hero
         "index.badge": "The New Chapter of Chilean Spirits",
-        "index.title": "Senshin: The New Chapter of",
-        "index.title.highlight": "Chilean Spirits",
-        "index.title.end": "",
+        "index.title": "The Soul of the Andes",
+        "index.title.highlight": "Distilled",
+        "index.title.end": " in Chile",
         "index.subtitle": "Chile is a land of great wines; now it's time to write its story in",
         "index.subtitle.whisky": "Whisky",
         "index.subtitle.and": "and",
@@ -132,6 +149,27 @@ export const translations = {
         "index.cta.secondary": "Our Story",
         "index.scroll": "Scroll to Explore",
 
+        // Home: Esencia Section
+        "home.esencia.badge": "The Soul of the Andes",
+        "home.esencia.title": "Where Heaven meets Earth",
+        "home.esencia.desc": "In the heart of the Elqui Valley, under the world's cleanest skies, we distill the purity of the high peaks to create a unique spirit.",
+        "home.esencia.cta": "Discover Origin",
+
+        // Home: Cava Section
+        "home.cava.badge": "Our Creations",
+        "home.cava.title": "The Art of Distillation",
+        "home.cava.whisky.title": "Senshin Single Malt",
+        "home.cava.whisky.desc": "12 Years · French Oak. The soul of Chilean Whisky.",
+        "home.cava.brandy.title": "Senshin Premium Brandy",
+        "home.cava.brandy.desc": "Special Solera. The elegance of Muscat grapes.",
+        "home.cava.cta": "Go to Shop",
+
+        // Home: Movement Section
+        "home.mov.badge": "Be part of the Change",
+        "home.mov.title": "A Legacy in the Making",
+        "home.mov.desc": "We don't just make spirits; we are redefining Chile's identity in the world. Join the founders.",
+        "home.mov.cta": "Join the Movement",
+
         // Nosotros
         "nosotros.badge": "Our Origin Story",
         "nosotros.title": "The Soul of the Andes",
@@ -139,11 +177,12 @@ export const translations = {
         "nosotros.desc": "A journey through purity, grain, and the heart of Chilean spirit. Born from the silence of the high peaks.",
 
         // Tienda
-        "tienda.badge": "Artisan Spirits",
-        "tienda.title": "The Spirit of the Chilean Sun",
-        "tienda.subtitle": "Each bottle tells a story of Chilean terroir and artisanal mastery.",
-        "tienda.desc": "Notes of noble wood and the subtle sweetness of the Chilean sun captured in every drop. An ode to the land and time.",
-        "tienda.cta": "Explore the Selection",
+        "tienda.badge": "Curated Gallery",
+        "tienda.title": "The Senshin Collection",
+        "tienda.subtitle": "Each bottle is a masterpiece distilled with artisanal mastery.",
+        "tienda.desc": "An exclusive selection that captures the soul of the Andes. Notes of noble wood and the subtle sweetness of the Chilean sun.",
+        "tienda.cta": "Explore Details",
+        "tienda.pedido": "Order Now",
 
         // Comunidad
         "comunidad.badge": "Community Tribute",

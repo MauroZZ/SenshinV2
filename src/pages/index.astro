@@ -79,32 +79,132 @@ import Layout from "../layouts/Layout.astro";
 					<div class="scroll-dot"></div>
 				</div>
 			</div>
-
-			<div class="footer-bottom">
-				<div class="footer-lang">
-					<span class="material-symbols-outlined lang-icon"
-						>language</span
-					>
-					<span class="lang-text">ES | EN</span>
-				</div>
-				<div class="footer-socials">
-					<a href="#" class="social-link">Instagram</a>
-					<a href="#" class="social-link">Vimeo</a>
-					<a href="#" class="social-link">Journal</a>
-				</div>
-			</div>
-		</div>
-
-		<!-- Side Accents -->
-		<div class="side-accents">
-			<div class="accent-dots">
-				<div class="dot-active"></div>
-				<div class="dot"></div>
-				<div class="dot"></div>
-				<div class="dot"></div>
-			</div>
 		</div>
 	</main>
+
+	<!-- Section 2: Esencia -->
+	<section class="home-esencia">
+		<div class="container essences-grid">
+			<div class="esencia-image-wrap">
+				<img
+					src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=2070&auto=format&fit=crop"
+					alt="Cordillera de los Andes"
+					class="esencia-img"
+				/>
+				<div class="img-caption glass-card">Valle del Elqui, Chile</div>
+			</div>
+			<div class="esencia-content">
+				<span class="section-badge" data-i18n="home.esencia.badge"
+					>El Alma de los Andes</span
+				>
+				<h2 class="section-title" data-i18n="home.esencia.title">
+					Donde el Cielo toca la Tierra
+				</h2>
+				<p class="section-desc" data-i18n="home.esencia.desc">
+					En el corazón del Valle del Elqui, bajo los cielos más
+					limpios del mundo, destilamos la pureza de las altas cumbres
+					para crear un espíritu único que captura la esencia de
+					nuestro terroir.
+				</p>
+				<a
+					href="/nosotros"
+					class="premium-link"
+					data-i18n="home.esencia.cta">Descubrir Origen →</a
+				>
+			</div>
+		</div>
+	</section>
+
+	<!-- Section 3: Cava (Product Showcase) -->
+	<section class="home-cava">
+		<div class="container">
+			<header class="cava-header">
+				<span class="section-badge" data-i18n="home.cava.badge"
+					>Nuestras Creaciones</span
+				>
+				<h2 class="cava-title" data-i18n="home.cava.title">
+					El Arte de la Destilación
+				</h2>
+			</header>
+
+			<div class="cava-grid">
+				<!-- Whisky -->
+				<div class="cava-item glass-card hover-reveal">
+					<div class="item-img-box">
+						<img
+							src="/assets/img/Senshi-single-mait.png"
+							alt="Senshin Single Malt"
+							class="item-img"
+						/>
+					</div>
+					<div class="item-info">
+						<h3 data-i18n="home.cava.whisky.title">
+							Senshin Single Malt
+						</h3>
+						<p data-i18n="home.cava.whisky.desc">
+							12 Años · Roble Francés. El alma del Whisky chileno.
+						</p>
+					</div>
+				</div>
+				<!-- Brandy -->
+				<div class="cava-item glass-card hover-reveal">
+					<div class="item-img-box">
+						<img
+							src="/assets/img/senshin-premium-brandy.png"
+							alt="Senshin Premium Brandy"
+							class="item-img"
+						/>
+					</div>
+					<div class="item-info">
+						<h3 data-i18n="home.cava.brandy.title">
+							Senshin Premium Brandy
+						</h3>
+						<p data-i18n="home.cava.brandy.desc">
+							Solera Especial. La elegancia de la uva Moscatel.
+						</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="cava-actions">
+				<a
+					href="/tienda"
+					class="premium-button"
+					data-i18n="home.cava.cta">Ir a la Tienda</a
+				>
+			</div>
+		</div>
+	</section>
+
+	<!-- Section 4: Movimiento -->
+	<section class="home-movimiento">
+		<div class="mov-bg-grain"></div>
+		<div class="container mov-container">
+			<div class="mov-card glass-card">
+				<span class="section-badge" data-i18n="home.mov.badge"
+					>Se parte del Cambio</span
+				>
+				<h2 data-i18n="home.mov.title">Un Legado en Construcción</h2>
+				<p data-i18n="home.mov.desc">
+					No solo hacemos destilados; estamos redefiniendo la
+					identidad de Chile en el mundo. Únete a los fundadores y
+					escribe esta historia con nosotros.
+				</p>
+				<div class="mov-actions">
+					<button
+						class="premium-button"
+						id="mov-cta"
+						data-i18n="home.mov.cta">Unirse al Movimiento</button
+					>
+					<div class="social-mini">
+						<span>Instagram</span> / <span>Vimeo</span> / <span
+							>LinkedIn</span
+						>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
 </Layout>
 
 <style>
@@ -315,6 +415,7 @@ import Layout from "../layouts/Layout.astro";
 		flex-direction: column;
 		align-items: center;
 		gap: 24px;
+		margin-top: 64px;
 	}
 
 	@media (min-width: 768px) {
@@ -457,4 +558,304 @@ import Layout from "../layouts/Layout.astro";
 		background-color: rgba(255, 255, 255, 0.2);
 		border-radius: var(--radius-full);
 	}
+
+	/* --- COMMON SECTION STYLES --- */
+	.container {
+		max-width: 1280px;
+		margin: 0 auto;
+		padding: 0 var(--space-xl);
+	}
+
+	.section-badge {
+		display: inline-block;
+		font-size: 10px;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.3em;
+		color: var(--color-primary);
+		margin-bottom: 24px;
+	}
+
+	.section-title {
+		font-size: clamp(32px, 5vw, 64px);
+		font-weight: 700;
+		line-height: 1.1;
+		margin-bottom: 32px;
+		letter-spacing: -0.02em;
+	}
+
+	.section-desc {
+		font-size: var(--text-lg);
+		color: var(--color-text-dim);
+		line-height: 1.8;
+		margin-bottom: 40px;
+		font-weight: 300;
+	}
+
+	/* --- ESENCIA --- */
+	.home-esencia {
+		padding: 160px 0;
+		background: #0d0c0b;
+	}
+
+	.essences-grid {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: 80px;
+		align-items: center;
+	}
+
+	@media (min-width: 1024px) {
+		.essences-grid {
+			grid-template-columns: 1fr 1fr;
+		}
+	}
+
+	.esencia-image-wrap {
+		position: relative;
+	}
+
+	.esencia-img {
+		width: 100%;
+		aspect-ratio: 4/5;
+		object-fit: cover;
+		border-radius: 4px;
+		filter: brightness(0.8) contrast(1.1);
+	}
+
+	.img-caption {
+		position: absolute;
+		bottom: 32px;
+		right: -20px;
+		padding: 16px 32px;
+		font-size: 11px;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.2em;
+		backdrop-filter: blur(20px);
+		background: rgba(255, 255, 255, 0.03);
+		border: 1px solid rgba(255, 255, 255, 0.1);
+	}
+
+	.premium-link {
+		font-size: 12px;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.2em;
+		color: var(--color-primary);
+		text-decoration: none;
+		transition: var(--transition-smooth);
+	}
+
+	.premium-link:hover {
+		letter-spacing: 0.3em;
+		color: white;
+	}
+
+	/* --- CAVA --- */
+	.home-cava {
+		padding: 120px 0 160px;
+		background: var(--color-bg-dark);
+		text-align: center;
+	}
+
+	.cava-header {
+		margin-bottom: 80px;
+	}
+
+	.cava-title {
+		font-size: clamp(40px, 6vw, 84px);
+		font-weight: 700;
+		letter-spacing: -0.03em;
+	}
+
+	.cava-grid {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: 32px;
+		margin-bottom: 80px;
+	}
+
+	@media (min-width: 768px) {
+		.cava-grid {
+			grid-template-columns: 1fr 1fr;
+		}
+	}
+
+	.cava-item {
+		padding: 40px;
+		transition: var(--transition-smooth);
+	}
+
+	.cava-item:hover {
+		transform: translateY(-10px);
+		border-color: rgba(236, 156, 19, 0.3);
+	}
+
+	.item-img-box {
+		aspect-ratio: 1/1;
+		margin-bottom: 32px;
+		overflow: hidden;
+		background: radial-gradient(
+			circle,
+			rgba(236, 156, 19, 0.05) 0%,
+			transparent 70%
+		);
+	}
+
+	.item-img {
+		width: 100%;
+		height: 100%;
+		object-fit: contain;
+		transition: transform 1.5s var(--ease-out-expo);
+	}
+
+	.cava-item:hover .item-img {
+		transform: scale(1.1);
+	}
+
+	.item-info h3 {
+		font-size: var(--text-2xl);
+		margin-bottom: 12px;
+	}
+
+	.item-info p {
+		color: var(--color-text-dim);
+		font-size: var(--text-base);
+		font-weight: 300;
+	}
+
+	.cava-actions {
+		display: flex;
+		justify-content: center;
+	}
+
+	/* --- MOVIMIENTO --- */
+	.home-movimiento {
+		padding: 160px 0;
+		position: relative;
+		overflow: hidden;
+	}
+
+	.mov-bg-grain {
+		position: absolute;
+		inset: 0;
+		background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+		opacity: 0.05;
+		pointer-events: none;
+	}
+
+	.mov-card {
+		padding: 100px 60px;
+		text-align: center;
+		max-width: 900px;
+		margin: 0 auto;
+		background: radial-gradient(
+			circle at 50% 0%,
+			rgba(236, 156, 19, 0.1) 0%,
+			transparent 70%
+		);
+	}
+
+	.mov-card h2 {
+		font-size: clamp(40px, 6vw, 80px);
+		font-weight: 700;
+		letter-spacing: -0.04em;
+		margin-bottom: 32px;
+		line-height: 1;
+	}
+
+	.mov-card p {
+		font-size: var(--text-xl);
+		color: var(--color-text-dim);
+		line-height: 1.7;
+		margin-bottom: 56px;
+		max-width: 700px;
+		margin-left: auto;
+		margin-right: auto;
+		font-weight: 300;
+	}
+
+	.mov-actions {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 32px;
+	}
+
+	.social-mini {
+		font-size: 10px;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.3em;
+		color: rgba(255, 255, 255, 0.2);
+	}
+
+	.social-mini span {
+		color: rgba(255, 255, 255, 0.4);
+	}
+
+	/* --- PREMIUM SHARED BUTTON --- */
+	.premium-button {
+		background: var(--color-primary);
+		background: linear-gradient(
+			135deg,
+			var(--color-primary) 0%,
+			#c67e00 100%
+		);
+		border: none;
+		color: var(--color-bg-dark);
+		padding: 20px 48px;
+		border-radius: 4px;
+		font-size: 12px;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.2em;
+		cursor: pointer;
+		transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+		text-decoration: none;
+		display: inline-block;
+	}
+
+	.premium-button:hover {
+		transform: translateY(-3px);
+		box-shadow: 0 15px 40px rgba(236, 156, 19, 0.3);
+		filter: brightness(1.1);
+	}
 </style>
+
+<script>
+	// Link "Unirse al Movimiento" to LaunchBanner
+	const movCta = document.getElementById("mov-cta");
+	const openBannerBtn = document.getElementById("open-banner-btn");
+
+	movCta?.addEventListener("click", () => {
+		// Trigger the same logic as the nav button
+		const banner = document.getElementById("launch-banner");
+		if (banner) {
+			banner.classList.remove("dismissed");
+			banner.classList.add("visible");
+			setTimeout(() => {
+				const input = document.getElementById("banner-email");
+				input?.focus();
+			}, 400);
+		}
+	});
+
+	// Simple scroll reveal observer (Optional but recommended for premium feel)
+	const observerOptions = {
+		threshold: 0.1,
+	};
+
+	const observer = new IntersectionObserver((entries) => {
+		entries.forEach((entry) => {
+			if (entry.isIntersecting) {
+				entry.target.classList.add("is-visible");
+			}
+		});
+	}, observerOptions);
+
+	document
+		.querySelectorAll(".glass-card")
+		.forEach((el) => observer.observe(el));
+</script>

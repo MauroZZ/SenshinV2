@@ -106,7 +106,6 @@ const collection = [
                   <h4 class="product-name">{product.name}</h4>
                   <p class="product-type">{product.type}</p>
                 </div>
-                <span class="product-price">{product.price}</span>
               </div>
             </div>
 
@@ -143,10 +142,9 @@ const collection = [
                 </div>
               </div>
 
-              <button class="buy-btn">
-                <span class="material-symbols-outlined">shopping_bag</span>
-                Comprar Ahora
-              </button>
+              <a href="/contacto" class="showcase-cta" data-i18n="tienda.pedido">
+                REALIZAR PEDIDO
+              </a>
             </div>
           </div>
         ))}
@@ -417,8 +415,9 @@ const collection = [
   /* Ajuste específico para laptops: evitar que sean demasiado altas */
   @media (min-width: 1024px) {
     .product-card {
-      aspect-ratio: 1 / 1; /* Más cuadradas para que no se corten verticalmente en laptops */
-      max-height: 70vh; /* Nunca ocupar más del 70% de la altura de la pantalla */
+      aspect-ratio: auto;
+      height: 600px;
+      max-height: 80vh;
     }
   }
 
@@ -499,14 +498,17 @@ const collection = [
   }
 
   .product-card:hover .product-detail-overlay {
-    transform: translateY(25%); /* Sube solo el 75%, dejando ver la botella arriba */
+    transform: translateY(0); /* Sube completamente para dar aire al contenido */
   }
 
   .detail-header {
     display: flex;
-    flex-direction: column;
-    gap: 8px;
-    margin-bottom: 24px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 32px;
+    width: 100%;
   }
 
   .detail-name {
@@ -591,27 +593,28 @@ const collection = [
     color: #e2e8f0;
   }
 
-  .buy-btn {
+  .showcase-cta {
     width: 100%;
-    background-color: var(--color-text-main);
+    background-color: transparent;
     padding: 16px 0;
     border-radius: var(--radius-sm);
-    color: var(--color-bg-dark);
+    color: var(--color-primary);
+    border: 1px solid rgba(236, 156, 19, 0.3);
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.2em;
+    text-decoration: none;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 16px;
     transition: var(--transition-smooth);
-    font-size: var(--text-xs);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    font-size: 10px;
   }
 
-  .buy-btn:hover {
-    background-color: var(--color-primary);
-    color: var(--color-text-dark);
-    transform: translateY(-2px);
+  .product-card:hover .showcase-cta {
+    background-color: rgba(236, 156, 19, 0.1);
+    border-color: var(--color-primary);
+    letter-spacing: 0.3em;
   }
 </style>
