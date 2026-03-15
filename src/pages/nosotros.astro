@@ -228,12 +228,12 @@ import Layout from "../layouts/Layout.astro";
                     <span class="section-label">El Maestro Destilador</span>
                 </div>
 
-                <div class="founder-grid">
+                <div class="founder-centered-layout">
                     <div class="founder-info animate-fade-in">
                         <h2 class="section-title">
                             La Pasión Detrás de Senshin
                         </h2>
-                        <div class="text-content-wrapper">
+                        <div class="text-content-wrapper centered-text">
                             <p>
                                 Detrás de cada botella de <span
                                     class="highlight-bold">Senshin</span
@@ -251,8 +251,8 @@ import Layout from "../layouts/Layout.astro";
                         </div>
                     </div>
 
-                    <div class="founder-visuals">
-                        <div class="founder-card-main">
+                    <div class="founder-visuals-centered">
+                        <div class="founder-card-item">
                             <img
                                 src="/assets/img/fundador-1.jpg"
                                 alt="Maestro Destilador en el taller"
@@ -262,7 +262,7 @@ import Layout from "../layouts/Layout.astro";
                                 El Oficio y la Herencia
                             </div>
                         </div>
-                        <div class="founder-card-secondary">
+                        <div class="founder-card-item">
                             <img
                                 src="/assets/img/fundador-2.jpg"
                                 alt="Detalle del Brandy Senshin"
@@ -802,52 +802,57 @@ import Layout from "../layouts/Layout.astro";
         }
     }
 
-    /* ── FOUNDER SECTION ── */
-    .founder-grid {
-        display: grid;
-        grid-template-columns: 1fr;
+    /* ── FOUNDER SECTION REDESIGN ── */
+    .founder-centered-layout {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         gap: var(--space-xl);
-        align-items: flex-start;
+        text-align: center;
         margin-top: var(--space-xl);
     }
 
-    @media (min-width: 1024px) {
-        .founder-grid {
-            grid-template-columns: 1fr 1.6fr; /* Aún más espacio para lo visual */
+    .centered-text {
+        max-width: 800px;
+        margin: 0 auto;
+        text-align: center;
+        font-style: italic;
+    }
+
+    .founder-visuals-centered {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: var(--space-xl);
+        width: 100%;
+        max-width: 1200px;
+        margin-top: var(--space-lg);
+    }
+
+    @media (min-width: 768px) {
+        .founder-visuals-centered {
+            grid-template-columns: 1fr 1fr;
         }
     }
 
-    .founder-info .section-title {
-        font-size: clamp(40px, 8vw, 64px);
-        margin-bottom: var(--space-lg);
-    }
-
-    .founder-visuals {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: var(--space-lg);
-    }
-
-    .founder-card-main,
-    .founder-card-secondary {
+    .founder-card-item {
         position: relative;
         overflow: hidden;
         border-radius: var(--radius-lg);
         border: 1px solid rgba(236, 156, 19, 0.4);
-        aspect-ratio: 4 / 6; /* Mucho más alto y prominente */
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+        aspect-ratio: 4 / 5;
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+        background: var(--color-bg-darker);
     }
 
     .founder-img {
         width: 100%;
         height: 100%;
         object-fit: cover;
-        transition: transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+        transition: transform 1.5s cubic-bezier(0.2, 0.8, 0.2, 1);
     }
 
-    .founder-card-main:hover .founder-img,
-    .founder-card-secondary:hover .founder-img {
-        transform: scale(1.1);
+    .founder-card-item:hover .founder-img {
+        transform: scale(1.08);
     }
 
     .founder-caption {
@@ -855,25 +860,19 @@ import Layout from "../layouts/Layout.astro";
         bottom: 0;
         left: 0;
         right: 0;
-        padding: var(--space-md);
-        background: linear-gradient(to top, rgba(0, 0, 0, 0.95), transparent);
-        font-size: 13px;
+        padding: var(--space-lg);
+        background: linear-gradient(to top, rgba(0, 0, 0, 1) 0%, rgba(0,0,0,0.8) 40%, transparent 100%);
+        font-size: 14px;
         text-transform: uppercase;
-        letter-spacing: 0.2em;
+        letter-spacing: 0.3em;
         color: var(--color-primary);
         text-align: center;
-        font-weight: 700;
+        font-weight: 900;
+        transition: var(--transition-smooth);
     }
 
-    @media (max-width: 768px) {
-        .founder-visuals {
-            grid-template-columns: 1fr;
-            gap: var(--space-md);
-        }
-
-        .founder-card-main,
-        .founder-card-secondary {
-            aspect-ratio: 4 / 5;
-        }
+    .founder-card-item:hover .founder-caption {
+        padding-bottom: var(--space-xl);
+        color: var(--color-white);
     }
 </style>
