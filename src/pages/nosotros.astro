@@ -286,6 +286,7 @@ import Layout from "../layouts/Layout.astro";
                     muted
                     loop
                     playsinline
+                    controls
                     poster="/assets/img/portada-Senshin.png"
                 >
                     <source
@@ -819,18 +820,34 @@ import Layout from "../layouts/Layout.astro";
         font-style: italic;
     }
 
+    @media (min-width: 1200px) {
+        .founder-section {
+            padding-top: 200px;
+            padding-bottom: 200px;
+        }
+        .centered-text {
+            max-width: 1000px;
+        }
+    }
+
     .founder-visuals-centered {
         display: grid;
         grid-template-columns: 1fr;
         gap: var(--space-xl);
         width: 100%;
         max-width: 1200px;
-        margin-top: var(--space-lg);
+        margin-top: var(--space-xl);
     }
 
     @media (min-width: 768px) {
         .founder-visuals-centered {
             grid-template-columns: 1fr 1fr;
+        }
+    }
+
+    @media (min-width: 1200px) {
+        .founder-visuals-centered {
+            gap: 80px;
         }
     }
 
@@ -883,5 +900,83 @@ import Layout from "../layouts/Layout.astro";
     
     .harvest-desc {
         color: rgba(255, 255, 255, 0.85) !important;
+    }
+
+    /* ── VIDEO SECTION ── */
+    .video-section {
+        background-color: #000;
+        padding-bottom: 120px;
+    }
+
+    .video-container {
+        position: relative;
+        width: 100%;
+        max-width: 1280px;
+        margin: 0 auto;
+        aspect-ratio: 16 / 9;
+        background: #000;
+        overflow: hidden;
+        border-radius: var(--radius-xl);
+        box-shadow: 0 40px 100px rgba(0,0,0,0.8);
+    }
+
+    .cinematic-video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+
+    .video-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0.7) 0%,
+            transparent 30%,
+            transparent 70%,
+            rgba(0, 0, 0, 0.7) 100%
+        );
+        pointer-events: none;
+        z-index: 1;
+    }
+
+    .video-content {
+        position: absolute;
+        top: 60px;
+        left: 60px;
+        z-index: 2;
+        max-width: 600px;
+        pointer-events: none;
+    }
+
+    .video-title {
+        font-size: var(--text-4xl);
+        font-weight: 700;
+        margin-bottom: 8px;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+    }
+
+    .video-subtitle {
+        font-size: var(--text-lg);
+        color: var(--color-text-dim);
+        font-weight: 300;
+    }
+
+    @media (max-width: 768px) {
+        .video-container {
+            border-radius: 0;
+            aspect-ratio: 9 / 16;
+        }
+        .video-content {
+            top: 40px;
+            left: 32px;
+            right: 32px;
+            bottom: auto;
+        }
+        .video-title {
+            font-size: var(--text-2xl);
+        }
     }
 </style>

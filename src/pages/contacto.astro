@@ -188,7 +188,7 @@ import Layout from "../layouts/Layout.astro";
     }
 
     .hero-title {
-        font-size: clamp(64px, 12vw, 140px);
+        font-size: clamp(48px, 9vw, 110px);
         font-weight: 700;
         text-transform: uppercase;
         letter-spacing: -0.04em;
@@ -560,7 +560,7 @@ import Layout from "../layouts/Layout.astro";
 
     // Google Maps Lazy Loading Logic
     const mapBtn = document.querySelector(".map-btn");
-    const mapContainer = document.querySelector(".map-container");
+    const mapContainer = document.querySelector(".map-container") as HTMLElement;
 
     mapBtn?.addEventListener("click", () => {
         if (mapContainer) {
